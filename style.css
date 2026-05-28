@@ -302,7 +302,7 @@ main, footer {
   display: flex;
   align-items: center;
   gap: var(--sp-s);
-  margin-bottom: var(--sp-m);
+  margin-bottom: var(--sp-l);
 }
 
 /* Section numbers — subdued, editorial */
@@ -335,7 +335,7 @@ main, footer {
   grid-template-columns: 200px 1fr;
   gap: var(--sp-l);
   align-items: start;
-  margin-bottom: var(--sp-m);
+  margin-bottom: var(--sp-s);
 }
 
 .photo-placeholder {
@@ -391,6 +391,8 @@ main, footer {
   display: flex;
   gap: var(--sp-2xs);
   margin-bottom: var(--sp-s);
+  padding-top: var(--sp-s);
+  border-top: 1px solid var(--border);
 }
 
 .about-social-link {
@@ -415,11 +417,11 @@ main, footer {
 
 /* ─── About — THEN → NOW timeline ────────────────── */
 .about-timeline {
-  margin-block: var(--sp-m);
-  padding: var(--sp-m) var(--sp-m) var(--sp-m) var(--sp-l);
+  margin-top: var(--sp-s);
+  margin-bottom: 0;
+  padding: var(--sp-m);
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
 }
 
 .tl-labels,
@@ -493,7 +495,7 @@ main, footer {
 }
 
 /* ─── About — bio ─────────────────────────────────── */
-.about-body { margin-top: var(--sp-m); }
+.about-body { margin-top: var(--sp-l); }
 
 .lede {
   font-family: var(--serif);
@@ -502,10 +504,8 @@ main, footer {
   font-size: clamp(1rem, 2vw, 1.3125rem);
   line-height: 1.5;
   color: var(--text);
-  margin-bottom: var(--sp-s);
+  margin-bottom: var(--sp-m);
   max-width: 36em;
-  padding-left: var(--sp-m);
-  border-left: 3px solid var(--accent);
 }
 
 .about-body p:not(.lede) {
@@ -1351,7 +1351,7 @@ main, footer {
 
 .exp-item:last-child .exp-connector { display: none; }
 
-.exp-body { padding-bottom: var(--sp-m); }
+.exp-body { padding-bottom: var(--sp-l); }
 
 .exp-head {
   display: flex;
@@ -1397,6 +1397,35 @@ main, footer {
   max-width: 58em;
 }
 
+/* ─── Research — two-column layout on desktop ─────── */
+.research-body {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 701px) {
+  .research-body {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-l);
+    align-items: start;
+  }
+}
+
+/* Empty state — only shown on desktop when no field is active */
+.kw-desc-empty {
+  display: none;
+  font-size: 0.75rem;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-top: var(--sp-m);
+}
+
+@media (min-width: 701px) {
+  .kw-desc-empty { display: block; }
+  #kw-desc-panel:has(.kw-desc--active) .kw-desc-empty { display: none; }
+}
+
 /* ─── Research — keyword cloud ────────────────────── */
 .kw-cloud {
   display: flex;
@@ -1404,6 +1433,10 @@ main, footer {
   gap: 8px 10px;
   align-items: center;
   padding: var(--sp-m) 0 var(--sp-s);
+}
+
+@media (min-width: 701px) {
+  .kw-cloud { padding-top: 0; }
 }
 
 .kw-pill {
@@ -1493,6 +1526,15 @@ main, footer {
   color: var(--text-2);
   line-height: 1.75;
   max-width: 58em;
+}
+
+/* In the split layout, remove the top separator — they're side by side */
+@media (min-width: 701px) {
+  .kw-desc.kw-desc--active {
+    border-top: none;
+    margin-top: 0;
+    padding-top: var(--sp-m);
+  }
 }
 
 /* ─── Connect compact — 2-column grid on desktop ─── */

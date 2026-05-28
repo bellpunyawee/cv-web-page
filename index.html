@@ -197,7 +197,7 @@
           <p class="edu-tl-degree">Ph.D.</p>
           <div class="edu-tl-dot-wrap"><div class="edu-tl-dot edu-tl-dot--now"></div></div>
           <p class="edu-tl-school">JAIST</p>
-          <p class="edu-tl-period">2021 – 2023</p>
+          <p class="edu-tl-period">2020 – 2023</p>
         </div>
       </div>
 
@@ -211,7 +211,7 @@
             <p class="edu-degree">Doctor of Philosophy</p>
             <p class="edu-field">Information Science — Entertainment Computing &amp; Game-Based Learning</p>
             <p class="edu-school">Japan Advanced Institute of Science and Technology (JAIST)</p>
-            <p class="edu-place">Nomi, Ishikawa, Japan · 2021 – 2023</p>
+            <p class="edu-place">Nomi, Ishikawa, Japan · 2020 – 2023</p>
             <p class="edu-award">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               IEICE Excellent Student Award, FY2022
@@ -348,9 +348,9 @@
           </div>
           <div class="edu-body">
             <p class="edu-degree">Bachelor of Engineering</p>
-            <p class="edu-field">Information and Communication Technology</p>
+            <p class="edu-field">Electronics and Communication Engineering</p>
             <p class="edu-school">Sirindhorn International Institute of Technology (SIIT), Thammasat University</p>
-            <p class="edu-place">Pathum Thani, Thailand · 2014 – 2018</p>
+            <p class="edu-place">Pathum Thani, Thailand · 2013 – 2017</p>
             <p class="edu-award">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               First Class Honours
@@ -462,7 +462,8 @@
         <h2 data-i18n="section.research">Research</h2>
       </header>
 
-      <!-- ─── Keyword cloud — click a field to explore ──── -->
+      <!-- ─── Split: keyword cloud (left) + description (right) ──── -->
+      <div class="research-body">
       <div class="kw-cloud" id="kw-cloud" aria-label="Research areas — click a field to explore">
 
         <button class="kw-pill kw-field" data-field="ai" type="button" data-i18n="research.ai-learning">AI-Driven Adaptive Learning</button>
@@ -492,8 +493,9 @@
 
       </div>
 
-      <!-- Description panel — appears when a field is selected -->
+      <!-- Description panel — right column on desktop -->
       <div class="kw-desc-panel" id="kw-desc-panel" aria-live="polite">
+        <p class="kw-desc-empty">Select a field to explore that research area.</p>
         <div class="kw-desc" data-field="ai">
           <p>Developing adaptive quiz systems and personalised learning experiences that respond to individual learners in real time — combining machine learning with insights from educational psychology to improve outcomes at scale.</p>
         </div>
@@ -506,7 +508,8 @@
         <div class="kw-desc" data-field="edtech">
           <p>Conducting and leading a strategic research-and-translation project — developing an AI-powered lifestyle-integrated micro-learning app for continuing education that meets adult learners in the flow of life and work.</p>
         </div>
-      </div>
+      </div><!-- /kw-desc-panel -->
+      </div><!-- /research-body -->
     </section>
 
     <!-- ─── 05 Publications ───────────────────────────────────────── -->
