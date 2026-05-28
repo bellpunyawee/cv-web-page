@@ -345,6 +345,7 @@ const TRANSLATIONS = {
   const figure = document.querySelector('.hero-figure');
   if (!hero || !figure) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(hover: none)').matches) return;
 
   let tx = 0, ty = 0, cx = 0, cy = 0;
 
@@ -363,6 +364,33 @@ const TRANSLATIONS = {
       requestAnimationFrame(tick);
     })();
   }, 1000);
+})();
+
+// ─── Publication items — staggered entrance ──────────────────────────
+//
+// Fires when pub-list enters view. Delays each item by 65ms,
+// starting at 530ms so items appear just as the section finishes its
+// 500ms scroll-reveal fade.
+//
+(function initPubStagger() {
+  const list = document.querySelector('.pub-list');
+  if (!list) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const items = list.querySelectorAll('.pub-item');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      items.forEach((item, i) => {
+        item.style.animationDelay = `${530 + i * 65}ms`;
+        item.classList.add('pub-item--entering');
+      });
+      obs.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+
+  obs.observe(list);
 })();
 
 // ─── Research keyword pills — staggered entrance ─────────────────────
