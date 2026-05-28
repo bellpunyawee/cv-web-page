@@ -335,6 +335,58 @@ const TRANSLATIONS = {
   activate('phd'); // default: show PhD on load
 })();
 
+// ─── Hero figure parallax ────────────────────────────────────────────
+//
+// Translates the icosahedron figure gently toward the cursor (max ±8px).
+// Uses lerp (0.08) for a trailing lag. Starts after hero entrance (1s).
+//
+(function initHeroParallax() {
+  const hero   = document.querySelector('.hero-inner');
+  const figure = document.querySelector('.hero-figure');
+  if (!hero || !figure) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    tx = ((e.clientX - r.left) / r.width  - 0.5) * 8;
+    ty = ((e.clientY - r.top)  / r.height - 0.5) * 8;
+  });
+  hero.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+
+  setTimeout(() => {
+    (function tick() {
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      figure.style.transform = `translate(${cx.toFixed(2)}px, ${cy.toFixed(2)}px)`;
+      requestAnimationFrame(tick);
+    })();
+  }, 1000);
+})();
+
+// ─── Research keyword pills — staggered entrance ─────────────────────
+(function initKwStagger() {
+  const cloud = document.getElementById('kw-cloud');
+  if (!cloud) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const pills = cloud.querySelectorAll('.kw-pill');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      pills.forEach((pill, i) => {
+        pill.style.animationDelay = `${i * 40}ms`;
+        pill.classList.add('kw-pill--entering');
+      });
+      obs.unobserve(e.target);
+    });
+  }, { threshold: 0.3 });
+
+  obs.observe(cloud);
+})();
+
 // ─── Research keyword cloud ──────────────────────────────────────────
 (function initKwCloud() {
   const cloud     = document.getElementById('kw-cloud');

@@ -30,7 +30,8 @@
   --sans:  -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', sans-serif;
 
   /* Easing — 200ms ease for interactions, longer for reveals */
-  --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease:          cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --duration: 200ms;
 
   /* Spacing */
@@ -61,12 +62,15 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ─── Accent bar — one bold red moment at page top ─── */
 .accent-bar {
   height: 3px;
   background: var(--accent);
+  transform-origin: left;
+  animation: barReveal 700ms var(--ease-out-expo) both;
 }
 
 /* ─── Tab Navigation ──────────────────────────────── */
@@ -225,6 +229,11 @@ main, footer {
   margin-bottom: var(--sp-xs);
 }
 
+/* First span = nickname "Bell" — bold for presence */
+/* Second span = full name — kept light for contrast */
+.name span:first-child { font-weight: 600; }
+.name span:last-child  { font-weight: 200; letter-spacing: -0.03em; }
+
 .name-sub {
   font-size: 0.75rem;
   font-weight: 400;
@@ -238,7 +247,8 @@ main, footer {
   font-size: 0.8125rem;
   color: var(--text-2);
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  margin-top: var(--sp-xs);
 }
 
 .hero-figure {
@@ -253,9 +263,22 @@ main, footer {
 
 .hero-figure figcaption {
   font-size: 0.6rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-3);
+  text-align: center;
+  max-width: 200px;
+  line-height: 1.6;
+}
+
+/* Hero entrance — stagger each element */
+.eyebrow     { animation: heroFadeUp 600ms var(--ease-out-expo)  80ms backwards; }
+.name        { animation: heroFadeUp 700ms var(--ease-out-expo) 180ms backwards; }
+.name-sub    { animation: heroFadeUp 600ms var(--ease-out-expo) 310ms backwards; }
+.tagline     { animation: heroFadeUp 600ms var(--ease-out-expo) 400ms backwards; }
+.hero-figure {
+  will-change: transform;
+  animation: heroFadeUp 700ms var(--ease-out-expo) 220ms backwards;
 }
 
 /* ─── Section shell ───────────────────────────────── */
@@ -280,13 +303,14 @@ main, footer {
   margin-bottom: var(--sp-m);
 }
 
-/* Section numbers — navy (structural, not red accent) */
+/* Section numbers — subdued, editorial */
 .section-head .n {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: var(--primary);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: var(--text-3);
   flex-shrink: 0;
+  opacity: 0.7;
 }
 
 .section-head .rule {
@@ -297,9 +321,9 @@ main, footer {
 
 .section-head h2 {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  font-size: clamp(1.375rem, 2.75vw, 2rem);
+  letter-spacing: -0.02em;
   flex-shrink: 0;
 }
 
@@ -349,6 +373,7 @@ main, footer {
 
 .about-info-role {
   font-size: 0.9375rem;
+  font-weight: 500;
   color: var(--text-2);
   margin-bottom: 4px;
 }
@@ -375,9 +400,11 @@ main, footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--duration) var(--ease);
+  transition:
+    background  var(--duration) var(--ease),
+    transform   var(--duration) var(--ease);
 }
-.about-social-link:hover { background: var(--border-bold); }
+.about-social-link:hover { background: var(--border-bold); transform: scale(1.08); }
 .about-social-link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px var(--primary-light);
@@ -396,9 +423,10 @@ main, footer {
 /* ─── About — THEN → NOW timeline ────────────────── */
 .about-timeline {
   margin-block: var(--sp-m);
-  padding: var(--sp-m);
+  padding: var(--sp-m) var(--sp-m) var(--sp-m) var(--sp-l);
   background: var(--bg-tinted);
   border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
 }
 
 .tl-labels,
@@ -431,6 +459,7 @@ main, footer {
 .tl-dot--now {
   background: var(--accent);
   border-color: var(--accent);
+  animation: nowPulse 2.8s ease-in-out 1.5s infinite;
 }
 
 .tl-line {
@@ -473,17 +502,19 @@ main, footer {
   font-style: italic;
   font-weight: 400;
   font-size: clamp(1rem, 2vw, 1.3125rem);
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--text);
   margin-bottom: var(--sp-s);
   max-width: 36em;
+  padding-left: var(--sp-m);
+  border-left: 3px solid var(--accent);
 }
 
 .about-body p:not(.lede) {
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   color: var(--text-2);
   max-width: 52em;
-  line-height: 1.78;
+  line-height: 1.8;
 }
 .about-body p + p { margin-top: var(--sp-xs); }
 
@@ -615,8 +646,24 @@ main, footer {
   align-items: start;
   padding-block: var(--sp-m);
   border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: background var(--duration) var(--ease);
 }
 .pub-item:first-child { border-top: 1px solid var(--border); }
+
+.pub-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--duration) var(--ease);
+}
+.pub-item:hover { background: var(--bg-tinted); }
+.pub-item:hover::before { transform: scaleY(1); }
 
 /* Years — navy (structural data, not an accent moment) */
 .pub-year {
@@ -630,16 +677,35 @@ main, footer {
 .pub-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
   line-height: 1.45;
   color: var(--text);
-  margin-bottom: var(--sp-2xs);
+  margin-bottom: var(--sp-xs);
 }
 
 .pub-meta {
   font-size: 0.78rem;
   color: var(--text-3);
   line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xs);
+  flex-wrap: wrap;
+}
+
+.pub-authors { color: var(--text-3); }
+
+.pub-cite {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  background: var(--primary-dim);
+  border: 1px solid var(--border-bold);
+  padding: 2px 8px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Scholar link — navy */
@@ -703,10 +769,10 @@ main, footer {
 
 .persona-card-type {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  font-size: clamp(1.875rem, 3.5vw, 2.875rem);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: var(--text);
   margin-bottom: var(--sp-2xs);
 }
@@ -863,8 +929,12 @@ main, footer {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background var(--duration) var(--ease);
+  transition:
+    background  var(--duration) var(--ease),
+    transform   var(--duration) var(--ease);
 }
+
+.link-row:hover .link-icon { transform: scale(1.08); }
 
 .link-name {
   font-size: 0.875rem;
@@ -1195,6 +1265,7 @@ main, footer {
   background: var(--bg);
   flex-shrink: 0;
   margin-inline: 4px;
+  transition: background 200ms var(--ease), border-color 200ms var(--ease);
 }
 .edu-tl-dot--now { background: var(--accent); border-color: var(--accent); }
 
@@ -1281,7 +1352,7 @@ main, footer {
   flex-shrink: 0;
   margin-top: 4px;
 }
-.exp-dot--now { background: var(--accent); border-color: var(--accent); }
+.exp-dot--now { background: var(--accent); border-color: var(--accent); animation: nowPulse 2.8s ease-in-out 1.5s infinite; }
 
 .exp-connector {
   flex: 1;
@@ -1306,8 +1377,9 @@ main, footer {
 
 .exp-title {
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .exp-period {
@@ -1415,6 +1487,9 @@ main, footer {
   border-color: var(--border-bold);
 }
 
+/* Staggered entrance for keyword pills */
+.kw-pill--entering { animation: heroFadeUp 420ms var(--ease-out-expo) backwards; }
+
 /* Description panel */
 .kw-desc { display: none; }
 .kw-desc.kw-desc--active {
@@ -1488,6 +1563,13 @@ main, footer {
     12px 14px 50px rgba(0,0,0,0.55);
 }
 
+/* Publication cite badge in dark mode */
+[data-theme="dark"] .pub-cite {
+  background: #2A1E12;
+  border-color: #3D2C1A;
+  color: #C9B59C;
+}
+
 /* Research card tags in dark mode */
 [data-theme="dark"] .research-card-tags span { background: #2A1E12; }
 [data-theme="dark"] .research-card:hover .research-card-tags span,
@@ -1533,6 +1615,22 @@ main, footer {
   .tab { padding: 0 var(--sp-xs); font-size: 0.75rem; }
 }
 
+/* ─── Keyframes ────────────────────────────────────── */
+@keyframes barReveal {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nowPulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(201, 181, 156, 0.55); }
+  50%      { box-shadow: 0 0 0 6px rgba(201, 181, 156, 0); }
+}
+
 /* ─── Reduced motion ──────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section   { opacity: 1; transform: none; transition: none; }
@@ -1541,4 +1639,9 @@ main, footer {
   .link-row::before,
   .arrow,
   .persona-card { transition: none; }
+  .accent-bar { animation: none; transform: none; }
+  .eyebrow, .name, .name-sub, .tagline,
+  .hero-figure  { animation: none; opacity: 1; transform: none; }
+  .tl-dot--now, .exp-dot--now { animation: none; }
+  .kw-pill--entering { animation: none; opacity: 1; transform: none; }
 }
