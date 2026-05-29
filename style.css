@@ -218,43 +218,68 @@ main, footer {
 }
 
 /* ─── Hero ────────────────────────────────────────── */
-.hero { padding-block: var(--sp-xl) var(--sp-l); }
-
-.hero-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-l);
+.hero {
+  padding-block: clamp(3rem, 9vw, 7rem) var(--sp-xl);
+  position: relative;
 }
 
-.hero-text { flex: 1; min-width: 0; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
 
-/* Eyebrow — one of the two red accent moments in hero viewport */
+.hero-text { min-width: 0; }
+
+/* Eyebrow — dark editorial label anchored by a tan accent tick.
+   The tan becomes a deliberate graphic rule; the text gets real contrast. */
 .eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: var(--sp-xs);
+  color: var(--text-2);
+  margin-bottom: var(--sp-s);
+}
+.eyebrow::before {
+  content: '';
+  width: clamp(24px, 4vw, 40px);
+  height: 2px;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
 .name {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(2.75rem, 7vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
   color: var(--text);
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--sp-xs);
+  margin-bottom: var(--sp-s);
 }
 
-/* First span = nickname "Bell" — bold for presence */
-/* Second span = full name — kept light for contrast */
-.name span:first-child { font-weight: 600; }
-.name span:last-child  { font-weight: 200; letter-spacing: -0.03em; }
+/* Nickname "Bell" — the hero focal point: extreme scale + heavy weight */
+.name .name-first {
+  font-weight: 700;
+  font-size: clamp(3.25rem, 12vw, 8rem);
+  letter-spacing: -0.045em;
+}
+
+/* Full name — small light kicker beneath; the scale contrast is the drama */
+.name .name-full {
+  font-weight: 300;
+  font-size: clamp(1rem, 2.6vw, 1.875rem);
+  letter-spacing: 0.005em;
+  line-height: 1.1;
+  color: var(--text-2);
+  margin-top: 0.45em;
+}
 
 .name-sub {
   font-size: 0.75rem;
@@ -262,35 +287,44 @@ main, footer {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-3);
-  margin-bottom: var(--sp-s);
+  margin-bottom: 0;
 }
 
+/* Tagline — set apart by a hairline rule for editorial rhythm */
 .tagline {
-  font-size: 0.8125rem;
+  font-size: clamp(0.8125rem, 1vw + 0.4rem, 0.9375rem);
   color: var(--text-2);
   font-weight: 400;
-  letter-spacing: 0.03em;
-  margin-top: var(--sp-xs);
+  letter-spacing: 0.02em;
+  margin-top: var(--sp-m);
+  padding-top: var(--sp-s);
+  border-top: 1px solid var(--border-bold);
+  max-width: 30em;
 }
 
 .hero-figure {
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--sp-xs);
+  gap: var(--sp-s);
 }
 
-#polyhedron { opacity: 0.65; display: block; }
+#polyhedron {
+  display: block;
+  width: clamp(180px, 22vw, 280px);
+  height: auto;
+  aspect-ratio: 1;
+  opacity: 0.85;
+}
 
 .hero-figure figcaption {
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-3);
   text-align: center;
-  max-width: 200px;
-  line-height: 1.6;
+  max-width: 22ch;
+  line-height: 1.7;
 }
 
 /* Hero entrance — stagger each element */
@@ -355,7 +389,7 @@ main, footer {
   grid-template-columns: 200px 1fr;
   gap: var(--sp-l);
   align-items: start;
-  margin-bottom: var(--sp-s);
+  margin-bottom: var(--sp-l);
 }
 
 .photo-placeholder {
@@ -375,12 +409,17 @@ main, footer {
   color: var(--text-3);
 }
 
+/* Photo — layered tan offset frame, echoing the thesis-book shadow language */
 .photo-wrap img {
   width: 200px;
   height: 250px;
   object-fit: cover;
   object-position: center top;
-  border-radius: 6px;
+  border-radius: 4px;
+  box-shadow:
+    3px 3px 0 var(--accent),
+    7px 7px 0 color-mix(in srgb, var(--accent) 45%, transparent),
+    12px 14px 36px rgba(0, 0, 0, 0.10);
 }
 
 .about-info { padding-top: var(--sp-2xs); }
@@ -474,7 +513,13 @@ main, footer {
 .tl-dot--now {
   background: var(--accent);
   border-color: var(--accent);
-  animation: nowPulse 2.8s ease-in-out 1.5s infinite;
+  /* Bouncy pop entrance, then settle into the pulse loop */
+  transform: scale(0);
+}
+#about.visible .tl-dot--now {
+  animation:
+    tlPop    560ms cubic-bezier(0.34, 1.56, 0.64, 1) 650ms both,
+    nowPulse 2.8s  ease-in-out                       1500ms infinite;
 }
 
 .tl-line {
@@ -483,7 +528,8 @@ main, footer {
   background: var(--border-bold);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 700ms var(--ease-out-expo) 500ms;
+  /* Bouncy draw — overshoot easing */
+  transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1) 500ms;
 }
 
 #about.visible .tl-line { transform: scaleX(1); }
@@ -500,7 +546,8 @@ main, footer {
   line-height: 1.4;
   margin-bottom: 3px;
 }
-.tl-info--now .tl-org { color: var(--accent); }
+/* NOW org — dark + heavier so it reads as the current, emphasised role */
+.tl-info--now .tl-org { color: var(--text); font-weight: 600; }
 
 .tl-role {
   font-size: 0.775rem;
@@ -517,15 +564,19 @@ main, footer {
 /* ─── About — bio ─────────────────────────────────── */
 .about-body { margin-top: var(--sp-l); }
 
+/* Lede — amplified italic pull-quote, anchored by a tan rule (persona-card language) */
 .lede {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(1rem, 2vw, 1.3125rem);
-  line-height: 1.5;
+  font-size: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
   color: var(--text);
-  margin-bottom: var(--sp-m);
-  max-width: 36em;
+  margin-bottom: var(--sp-l);
+  max-width: 19em;
+  padding-left: var(--sp-m);
+  border-left: 3px solid var(--accent);
 }
 
 .about-body p:not(.lede) {
@@ -666,13 +717,14 @@ main, footer {
 }
 .pub-item:first-child { border-top: 1px solid var(--border); }
 
-/* Years — navy (structural data, not an accent moment) */
+/* Years — serif numerals as a quiet editorial left rail */
 .pub-year {
-  font-size: 0.75rem;
-  color: var(--primary);
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--text-2);
   font-weight: 500;
-  letter-spacing: 0.05em;
-  padding-top: 0.25em;
+  letter-spacing: 0.01em;
+  padding-top: 0.05em;
 }
 
 .pub-title {
@@ -1288,7 +1340,11 @@ main, footer {
   margin: calc(-1 * var(--sp-xs));
   transition: background var(--duration) var(--ease);
   touch-action: manipulation;
+  /* Align text under the dot — dot sits left / center / right per column */
+  text-align: left;
 }
+.edu-tl-col--mid { text-align: center; }
+.edu-tl-col--end { text-align: right; }
 .edu-tl-col:hover { background: var(--bg-tinted); }
 .edu-tl-col:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
@@ -1403,6 +1459,8 @@ main, footer {
   color: var(--text-2);
   margin-bottom: 2px;
 }
+/* Current role — anchor the org name in dark, matching the About timeline */
+.exp-item:first-child .exp-org { color: var(--text); font-weight: 600; }
 
 .exp-company {
   font-size: 0.75rem;
@@ -1431,6 +1489,9 @@ main, footer {
   }
 }
 
+/* Panel header label — desktop card only (reuses the eyebrow tick device) */
+.kw-panel-label { display: none; }
+
 /* Empty state — only shown on desktop when no field is active */
 .kw-desc-empty {
   display: none;
@@ -1442,7 +1503,48 @@ main, footer {
 }
 
 @media (min-width: 701px) {
-  .kw-desc-empty { display: block; }
+  /* Right column — clean light card, lifted by a soft warm shadow */
+  .kw-desc-panel {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: var(--sp-l) var(--sp-m);
+    align-self: start;
+    position: sticky;
+    top: calc(var(--tab-h) + var(--sp-m));
+    min-height: 220px;
+    box-shadow: 0 6px 22px color-mix(in srgb, var(--primary) 7%, transparent);
+  }
+
+  .kw-panel-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    margin-bottom: var(--sp-m);
+  }
+  .kw-panel-label::before {
+    content: '';
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .kw-desc-empty {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-3);
+    line-height: 1.7;
+    letter-spacing: 0;
+    text-transform: none;
+    padding-top: 0;
+    max-width: 30ch;
+  }
   #kw-desc-panel:has(.kw-desc--active) .kw-desc-empty { display: none; }
 }
 
@@ -1489,12 +1591,13 @@ main, footer {
 
 .kw-field--current {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--primary);
 }
 .kw-field--current::after {
   content: '✦';
   font-size: 0.6rem;
-  opacity: 0.7;
+  color: var(--accent);
+  opacity: 0.9;
 }
 
 .kw-tag {
@@ -1553,7 +1656,7 @@ main, footer {
   .kw-desc.kw-desc--active {
     border-top: none;
     margin-top: 0;
-    padding-top: var(--sp-m);
+    padding-top: 0;
   }
 }
 
@@ -1573,6 +1676,9 @@ main, footer {
 }
 
 .link-row:first-child { border-top: none; }
+
+/* Odd link count leaves a blank grid cell — let the last one span the row */
+.links-nav .link-row:last-child { grid-column: 1 / -1; }
 
 /* Description hidden in compact grid — name + icon + arrow is enough */
 .link-desc { display: none; }
@@ -1624,12 +1730,16 @@ main, footer {
 
 /* ─── Responsive ──────────────────────────────────── */
 @media (max-width: 700px) {
+  .hero { padding-block: clamp(2rem, 8vw, 3.5rem) var(--sp-l); }
   .hero-inner {
-    flex-direction: column-reverse;
+    grid-template-columns: 1fr;
     align-items: flex-start;
     gap: var(--sp-m);
   }
-  #polyhedron { width: 120px; height: 120px; }
+  /* Lead with the name; figure becomes a small left-aligned mark below */
+  .hero-figure { align-items: flex-start; gap: var(--sp-xs); }
+  #polyhedron { width: 118px; }
+  .hero-figure figcaption { text-align: left; max-width: 30ch; }
 
   .about-profile { grid-template-columns: 1fr; gap: var(--sp-m); }
   .photo-placeholder, .photo-wrap img { width: 100%; height: 220px; }
@@ -1655,7 +1765,7 @@ main, footer {
 }
 
 @media (max-width: 440px) {
-  .name { font-size: clamp(2.25rem, 13vw, 3.5rem); }
+  .name .name-first { font-size: clamp(2.75rem, 16vw, 4rem); }
   .tab { padding: 0 var(--sp-xs); font-size: 0.75rem; }
 }
 
@@ -1675,6 +1785,12 @@ main, footer {
   50%      { box-shadow: 0 0 0 6px rgba(201, 181, 156, 0); }
 }
 
+/* Bouncy pop for the NOW dot — overshoot comes from the easing curve */
+@keyframes tlPop {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+
 /* ─── Reduced motion ──────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section   { opacity: 1; transform: none; transition: none; }
@@ -1687,6 +1803,7 @@ main, footer {
   .eyebrow, .name, .name-sub, .tagline,
   .hero-figure  { animation: none; opacity: 1; transform: none; }
   .tl-dot--now, .exp-dot--now { animation: none; }
+  .tl-dot--now { transform: scale(1); }
   .kw-pill--entering, .pub-item--entering { animation: none; opacity: 1; transform: none; }
   .tl-line { transform: none; transition: none; }
   .exp-connector { transform: none; transition: none; }
