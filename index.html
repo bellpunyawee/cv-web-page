@@ -68,7 +68,11 @@
         <div class="hero-text">
           <p class="eyebrow" data-i18n="hero.eyebrow">Research Fellow · CHILL · AHLab, NUS</p>
           <h1 class="name">
-            <span class="name-first">Bell</span>
+            <span class="name-first">Bell<!-- barista's swash: one hand-drawn stroke, drawn on load -->
+              <svg class="name-swash" viewBox="0 0 240 26" fill="none" aria-hidden="true" focusable="false">
+                <path d="M4 17C36 6 78 3 118 6c26 2 52 7 78 4 14-2 26-6 36-9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </span>
             <span class="name-full">Punyawee Anunpattana</span>
           </h1>
           <p class="name-sub">ベル・プンヤウィー・アヌンパッタナー&ensp;·&ensp;Singapore</p>
@@ -77,7 +81,6 @@
 
         <figure class="hero-figure" aria-hidden="true">
           <canvas id="polyhedron" width="280" height="280"></canvas>
-          <figcaption>Entertainment Computing&ensp;·&ensp;EdTech&ensp;·&ensp;AIED</figcaption>
         </figure>
 
       </div>
@@ -91,7 +94,7 @@
         <h2 data-i18n="section.about">About</h2>
       </header>
 
-      <!-- ─── Profile card ─────────────────────────────── -->
+      <!-- ─── รูป + โซเชียล (ซ้าย)  ·  lede + bio (ขวา) ── -->
       <div class="about-profile">
 
         <div class="photo-wrap">
@@ -99,9 +102,6 @@
         </div>
 
         <div class="about-info">
-          <p class="about-info-name">Punyawee Anunpattana</p>
-          <p class="about-info-role">Research Fellow</p>
-          <p class="about-info-inst">CHILL · AHLab, NUS Singapore</p>
           <nav class="about-social" aria-label="Contact and social profiles">
             <a class="about-social-link" href="mailto:punyawee@ahlab.org" aria-label="Email">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -127,54 +127,34 @@
           </nav>
         </div>
 
-      </div>
-
-      <!-- ─── Career timeline THEN → NOW ──────────────── -->
-      <div class="about-timeline">
-        <div class="tl-labels" aria-hidden="true">
-          <span class="tl-label">Then</span>
-          <span class="tl-label tl-label--now">Now</span>
-        </div>
-        <div class="tl-track" aria-hidden="true">
-          <div class="tl-dot"></div>
-          <div class="tl-line"></div>
-          <div class="tl-dot tl-dot--now"></div>
-        </div>
-        <div class="tl-infos">
-          <div class="tl-info">
-            <p class="tl-org">CPFM — Centre for Project and Facilities Management</p>
-            <p class="tl-role">Research Fellow</p>
-            <p class="tl-period">Aug 2023 – Apr 2025</p>
-          </div>
-          <div class="tl-info tl-info--now">
-            <p class="tl-org">CHILL — Centre for Holistic Inquiry into Lifelong Learning</p>
-            <p class="tl-role">Research Fellow</p>
-            <p class="tl-period">May 2025 – present</p>
-          </div>
-        </div>
-      </div>
-
       <!-- ─── Bio ──────────────────────────────────────── -->
       <div class="about-body">
-        <p class="lede">
-          Making education more engaging and effective through AI,
-          gamification, and human-centered design.
+        <p class="lede" data-i18n="about.lede">
+          Brewing education just like my daily cold brew: clean, bold, steeped
+          to perfection, and zero bitter aftertaste.
         </p>
-        <p>
-          I am a Research Fellow at the
-          <a href="https://ahlab.org/people/punyawee-anunpattana/" target="_blank" rel="noopener noreferrer">Centre for Holistic Inquiry into Lifelong Learning (CHILL)</a>,
-          within the Augmented Human Lab, National University of Singapore,
-          where I work on Learning Science and Human-AI Interaction — developing
-          AI-driven adaptive learning systems and gamification strategies for
-          educational contexts. I hold a Ph.D. in Information Science from JAIST,
-          specialising in Entertainment Computing and Game-Based Learning.
+        <p data-i18n="about.p1">
+          My 9-to-5 basically makes me the head barista at the Learning Science
+          &#215; AI bar. I roast adaptive learning systems with gamified loops until
+          the balance hits just right&#8212;locking learners into the zone before their
+          dopamine and caffeine levels crash.
         </p>
-        <p>
-          My work has been cited 141 times (h-index 6), spanning research on
-          challenge-based gamification, game refinement theory, and adaptive quiz
-          systems. Outside the lab: gaming, film, travel, and good coffee.
+        <p data-i18n="about.p2">
+          My research papers have racked up a casual <strong>141 citations
+          (h-index 6)</strong>, obsessing over everything from challenge mechanics to Game Refinement
+          Theory (yes, measuring flow state with the precision of a 0.1g digital
+          coffee scale).
+        </p>
+        <p class="about-aside" data-i18n="about.p3">
+          Off the clock? Full-on side quests: gaming, binge-watching shows,
+          booking impromptu trips on zero free time, and cafe-hopping for
+          specialty drinks with questionable main-character energy&#8212;muscular dark
+          roasts, nerdy oat lattes, chunky cappuccinos, soft-boy matchas, and
+          broody dark cocoas. Honestly, what is my life?!
         </p>
       </div>
+
+      </div><!-- /.about-profile -->
     </section>
 
     <!-- ─── 02 Education ──────────────────────────────────────────── -->
@@ -189,18 +169,21 @@
       <div class="edu-timeline">
         <div class="edu-tl-col" data-for="beng" role="button" tabindex="0" aria-label="Bachelor of Engineering — click to view details">
           <p class="edu-tl-degree">B.Eng.</p>
+          <p class="edu-tl-brew" data-i18n="brew.espresso">Espresso</p>
           <div class="edu-tl-dot-wrap"><div class="edu-tl-dot"></div></div>
           <p class="edu-tl-school">SIIT · Thammasat University</p>
           <p class="edu-tl-period">2013 – 2017</p>
         </div>
         <div class="edu-tl-col edu-tl-col--mid" data-for="ms" role="button" tabindex="0" aria-label="Master of Science — click to view details">
           <p class="edu-tl-degree">M.S.</p>
+          <p class="edu-tl-brew" data-i18n="brew.americano">Americano</p>
           <div class="edu-tl-dot-wrap"><div class="edu-tl-dot"></div></div>
           <p class="edu-tl-school">JAIST</p>
           <p class="edu-tl-period">2018 – 2020</p>
         </div>
         <div class="edu-tl-col edu-tl-col--end" data-for="phd" role="button" tabindex="0" aria-label="Doctor of Philosophy — click to view details">
           <p class="edu-tl-degree">Ph.D.</p>
+          <p class="edu-tl-brew" data-i18n="brew.coldbrew">Cold Brew</p>
           <div class="edu-tl-dot-wrap"><div class="edu-tl-dot edu-tl-dot--now"></div></div>
           <p class="edu-tl-school">JAIST</p>
           <p class="edu-tl-period">2020 – 2023</p>
@@ -502,7 +485,7 @@
       <!-- Description panel — right column on desktop -->
       <div class="kw-desc-panel" id="kw-desc-panel" aria-live="polite">
         <p class="kw-panel-label">Research Focus</p>
-        <p class="kw-desc-empty">Hover or click a field on the left to explore that research area.</p>
+        <p class="kw-desc-empty" data-i18n="research.empty">Pick a field to see what's brewing.</p>
         <div class="kw-desc" data-field="ai">
           <p>Developing adaptive quiz systems and personalised learning experiences that respond to individual learners in real time — combining machine learning with insights from educational psychology to improve outcomes at scale.</p>
         </div>
@@ -576,6 +559,9 @@
       </div>
     </section>
 
+    <!-- Personality + Connect วางคู่กันบนจอ ≥901px, ซ้อนกันบนมือถือ -->
+    <div class="section-pair">
+
     <!-- ─── 06 Personality ────────────────────────────────────────── -->
     <section class="section" id="personality" aria-label="Personality">
       <header class="section-head">
@@ -637,7 +623,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
           </div>
           <span class="link-name" data-i18n="link.cv">Curriculum Vitae</span>
-          <span class="link-desc">PDF</span>
+          <span class="link-desc" data-i18n="link.cv.desc">The full menu (PDF)</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
@@ -689,12 +675,14 @@
       </nav>
     </section>
 
+    </div><!-- /.section-pair -->
 
   </main>
 
   <footer>
     <div class="footer-rule"></div>
     <p class="footer-text">
+      <span data-i18n="footer.brewed">Brewed in Singapore</span> <span aria-hidden="true">·</span>
       Punyawee Anunpattana <span aria-hidden="true">·</span> <span id="year"></span>
     </p>
   </footer>
