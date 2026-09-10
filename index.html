@@ -94,14 +94,13 @@
         <h2 data-i18n="section.about">About</h2>
       </header>
 
-      <!-- ─── รูป + โซเชียล (ซ้าย)  ·  lede + bio (ขวา) ── -->
+      <!-- rail (รูป+โซเชียล) · lede เต็มความกว้าง · bio | aside -->
       <div class="about-profile">
 
-        <div class="photo-wrap">
-          <img src="photo.jpg" alt="Punyawee Anunpattana">
-        </div>
-
-        <div class="about-info">
+        <div class="about-rail">
+          <div class="photo-wrap">
+            <img src="photo.jpg" alt="Punyawee Anunpattana">
+          </div>
           <nav class="about-social" aria-label="Contact and social profiles">
             <a class="about-social-link" href="mailto:punyawee@ahlab.org" aria-label="Email">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -128,11 +127,12 @@
         </div>
 
       <!-- ─── Bio ──────────────────────────────────────── -->
+      <p class="lede" data-i18n="about.lede">
+        Brewing education just like my daily cold brew: clean, bold, steeped
+        to perfection, and zero bitter aftertaste.
+      </p>
+
       <div class="about-body">
-        <p class="lede" data-i18n="about.lede">
-          Brewing education just like my daily cold brew: clean, bold, steeped
-          to perfection, and zero bitter aftertaste.
-        </p>
         <p data-i18n="about.p1">
           My 9-to-5 basically makes me the head barista at the Learning Science
           &#215; AI bar. I roast adaptive learning systems with gamified loops until
@@ -145,14 +145,15 @@
           Theory (yes, measuring flow state with the precision of a 0.1g digital
           coffee scale).
         </p>
-        <p class="about-aside" data-i18n="about.p3">
-          Off the clock? Full-on side quests: gaming, binge-watching shows,
-          booking impromptu trips on zero free time, and cafe-hopping for
-          specialty drinks with questionable main-character energy&#8212;muscular dark
-          roasts, nerdy oat lattes, chunky cappuccinos, soft-boy matchas, and
-          broody dark cocoas. Honestly, what is my life?!
-        </p>
       </div>
+
+      <p class="about-aside" data-i18n="about.p3">
+        Off the clock? Full-on side quests: gaming, binge-watching shows,
+        booking impromptu trips on zero free time, and cafe-hopping for
+        specialty drinks with questionable main-character energy&#8212;muscular dark
+        roasts, nerdy oat lattes, chunky cappuccinos, soft-boy matchas, and
+        broody dark cocoas. Honestly, what is my life?!
+      </p>
 
       </div><!-- /.about-profile -->
     </section>
@@ -552,11 +553,11 @@
           </div>
         </article>
 
-        <a class="pub-more" href="https://scholar.google.com/citations?user=J4xtAsQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
-          View all on Google Scholar ↗
-        </a>
-
       </div>
+
+      <a class="pub-more" href="https://scholar.google.com/citations?user=J4xtAsQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+        View all on Google Scholar ↗
+      </a>
     </section>
 
     <!-- Personality + Connect วางคู่กันบนจอ ≥901px, ซ้อนกันบนมือถือ -->

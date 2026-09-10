@@ -455,17 +455,17 @@ main, footer {
 /* ─── About — profile card ────────────────────────── */
 .about-profile {
   display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
+  grid-template-columns: 200px minmax(0, 1fr) minmax(0, 21rem);
   column-gap: var(--sp-l);
-  row-gap: var(--sp-s);
+  row-gap: var(--sp-m);
   align-items: start;
   margin-bottom: 0;
 }
-/* Explicit placement keeps photo + socials stacked in the left rail
-   without needing an extra wrapper element */
-.photo-wrap { grid-column: 1; grid-row: 1; }
-.about-info { grid-column: 1; grid-row: 2; }
-.about-body { grid-column: 2; grid-row: 1 / span 2; }
+
+.about-rail  { grid-column: 1; grid-row: 1 / span 2; }
+.lede        { grid-column: 2 / -1; grid-row: 1; }
+.about-body  { grid-column: 2; grid-row: 2; }
+.about-aside { grid-column: 3; grid-row: 2; }
 
 /* Photo — layered green offset frame, echoing the thesis-book shadow language */
 .photo-wrap img {
@@ -480,12 +480,13 @@ main, footer {
     12px 14px 36px rgba(0, 0, 0, 0.10);
 }
 
-.about-info { padding-top: var(--sp-2xs); }
 
 .about-social {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
   gap: var(--sp-2xs);
-  margin-bottom: var(--sp-s);
+  justify-content: start;
+  margin-top: var(--sp-s);
   padding-top: var(--sp-s);
   border-top: 1px solid var(--border);
 }
@@ -523,11 +524,11 @@ main, footer {
   letter-spacing: -0.021em;      /* display sizes want more negative tracking */
   color: var(--text);
   margin-bottom: 1.1em;
-  max-width: 34ch;
+  max-width: 46ch;
   text-wrap: balance;
 }
 
-.about-body p:not(.lede) {
+.about-body p {
   font-size: 1rem;               /* was 0.9375rem — under the 16px floor, and
                                     smaller than the page's own 17px base */
   color: var(--text-2);
@@ -546,21 +547,22 @@ main, footer {
   color: var(--text);
 }
 
-/* "Off the clock" is a different register: an aside, not more argument.
-   Marked by space and colour, NOT a third size — 16/15px steps read as a
-   mistake rather than a hierarchy. */
-.about-body p.about-aside {
-  margin-top: 1.7em;
-  padding-top: 1.2em;
-  border-top: 1px solid var(--border);
+/* "Off the clock" is a different register — now a margin note in its own
+   column, so the column does the separating and no rule is needed. */
+.about-aside {
+  font-size: 0.9375rem;
+  line-height: 1.7;
   color: var(--text-3);
+  max-width: 42ch;
+  text-wrap: pretty;
 }
+[lang="th"] .about-aside { line-height: 1.9; }
 
 /* Thai stacks vowels and tone marks above the x-height and hangs vowels below
    the baseline, so it needs more leading than Latin at the same size. The i18n
    code already maintains <html lang>, so this can key off it. */
 [lang="th"] .lede { line-height: 1.42; }
-[lang="th"] .about-body p:not(.lede) { line-height: 1.85; }
+[lang="th"] .about-body p { line-height: 1.85; }
 
 /* Inline link — navy */
 .about-body a {
@@ -740,6 +742,11 @@ main, footer {
 @media (min-width: 901px) {
   .edu-list.edu-js:has(.thesis-book-shadow.edu-visible) {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+  /* Side by side, the book's vertical margin would misalign its top edge
+     against the degree detail — the grid gap already does that job. */
+  .edu-list.edu-js:has(.thesis-book-shadow.edu-visible) .thesis-book-shadow {
+    margin-block: 0;
   }
 }
 
@@ -1408,7 +1415,7 @@ footer {
     align-self: start;
     position: sticky;
     top: calc(var(--tab-h) + var(--sp-m));
-    min-height: 220px;
+    min-height: 190px;
     box-shadow: var(--shadow-card);
   }
 
@@ -1441,6 +1448,12 @@ footer {
     max-width: 30ch;
   }
   #kw-desc-panel:has(.kw-desc--active) .kw-desc-empty { display: none; }
+
+  /* While empty, centre the prompt so the panel reads as waiting, not broken */
+  .kw-desc-panel:not(:has(.kw-desc--active)) {
+    display: grid;
+    align-content: center;
+  }
 }
 
 /* ─── Research — keyword cloud ────────────────────── */
@@ -1647,7 +1660,7 @@ footer {
   #polyhedron { width: 118px; }
 
   .about-profile { grid-template-columns: minmax(0, 1fr); gap: var(--sp-m); }
-  .photo-wrap, .about-info, .about-body { grid-column: 1; grid-row: auto; }
+  .about-rail, .lede, .about-body, .about-aside { grid-column: 1; grid-row: auto; }
   .photo-wrap img { width: 100%; height: 220px; }
 
   .pub-item { grid-template-columns: 40px 1fr; gap: var(--sp-s); }
