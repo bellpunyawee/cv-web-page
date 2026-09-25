@@ -95,6 +95,8 @@
   --portrait-paper: #F4F2ED;
   --portrait-ink: #33433d;
   --on-accent: #ffffff;
+  --brew-hover-bg: #ffffff;
+  --brew-hover-ink: #006241;
   --footer-ink: rgba(255, 255, 255, 0.70);
 }
 
@@ -1965,7 +1967,11 @@ body:has(.poster-home):not(.reading-story) { background: var(--bg-tinted); }
 .poster-home .bell-portrait { width: 340px; height: 280px; aspect-ratio: auto; }
 .poster-home .bell-pose { transform: scale(1); object-position: center 45%; }
 .poster-home .bell-pose--coffee { transform: scale(1.12); }
-.poster-home .bell-invitation { font-size: var(--type-small); min-height: 44px; padding-inline: var(--sp-s); border-radius: var(--r-pill); background: var(--accent); color: var(--on-accent); font-weight: var(--weight-medium); }
+.poster-home .bell-invitation { font-size: var(--type-small); min-height: 44px; padding-inline: var(--sp-s); border-radius: var(--r-pill); background: var(--accent); color: var(--on-accent); font-weight: var(--weight-medium); transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease); }
+.poster-home .bell-character:enabled:focus-visible .bell-invitation { background: var(--brew-hover-bg); color: var(--brew-hover-ink); }
+@media (hover: hover) {
+  .poster-home .bell-character:enabled:hover .bell-invitation { background: var(--brew-hover-bg); color: var(--brew-hover-ink); }
+}
 .poster-home .bell-invitation svg { width: 16px; height: 16px; }
 .brew-tally { margin: var(--sp-2xs) 0; color: var(--text-2); text-align: center; font-size: var(--type-small); line-height: 1.5; }
 .brew-total { color: var(--primary); font-weight: var(--weight-strong); font-variant-numeric: tabular-nums; }
