@@ -1,4 +1,8 @@
 'use strict';
+const preferences = {
+  get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch { /* Session-only preference. */ } }
+};
 
 // ─── Footer year ────────────────────────────────────────────────
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -125,12 +129,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const btn  = document.querySelector('.theme-toggle');
   if (!btn) return;
 
-  const saved       = localStorage.getItem('theme');
+  const saved       = preferences.get('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   function applyTheme(t) {
     root.setAttribute('data-theme', t);
-    localStorage.setItem('theme', t);
+    preferences.set('theme', t);
   }
 
   applyTheme(saved || (prefersDark ? 'dark' : 'light'));
@@ -162,6 +166,101 @@ function setText(el, str) {
 
 const TRANSLATIONS = {
   en: {
+    "feed.button": "Feed me cold brew",
+    "feed.cup": "cup served",
+    "feed.cups": "cups served",
+    "feed.browser": "by you, in this browser",
+    "feed.session": "by you, this visit",
+    "feed.note.0": "Please feed me. Great ideas run on cold brew.",
+    "feed.note.1": "Ahh, that's the good stuff. Thank you!",
+    "feed.note.2": "One sip closer to my next idea.",
+    "feed.note.3": "You bring the brew. I'll bring the curiosity.",
+    "feed.note.5": "Five cups! You're officially my favourite barista.",
+    "feed.note.10": "Ten cups. This tiny café has a regular!",
+    "feed.note.25": "Twenty-five! I think we need a bigger coffee table.",
+    "poster.research": "A curious mind.",
+    "poster.research.desc": "AI, learning & play",
+    "poster.papers": "Ideas, in print.",
+    "poster.about": "The real Bell.",
+    "poster.degree": "Ph.D.",
+    "chapter.choose": "Choose a chapter",
+    "chapter.tap.short": "Tap Bell",
+    "chapter.research.ai": "Learning that adapts to each learner, with quizzes and personalised feedback.",
+    "chapter.research.notes": "Research notes",
+    "chapter.research.game": "Using challenge and play to make classroom quizzes more engaging.",
+    "chapter.research.entertainment": "Exploring what makes games enjoyable through game refinement theory.",
+    "chapter.research.edtech": "Bringing AI-powered micro-learning into everyday life and work.",
+    "chapter.research.detail.0": "Developing adaptive quiz systems and personalised learning experiences that respond to individual learners in real time — combining machine learning with insights from educational psychology to improve outcomes at scale.",
+    "chapter.research.detail.1": "Examining how challenge-based gamification mechanics can transform classroom quizzing into engaging, rewarding experiences. Published research demonstrates significant gains in student engagement and knowledge retention.",
+    "chapter.research.detail.2": "Applying game refinement theory and signal-processing models to measure and optimise the entertainment value of games — linking player experience to mathematical properties of game structure and design.",
+    "chapter.research.detail.3": "Conducting and leading a strategic research-and-translation project — developing an AI-powered lifestyle-integrated micro-learning app for continuing education that meets adult learners in the flow of life and work.",
+    "chapter.experience.detail.0": "Developing AI and LLM-based adaptive learning solutions for Continuing Education & Training (CET) courses, integrating advanced research practices into educational technology.",
+    "chapter.experience.detail.1": "Led \"Improving Adaptive Learning for Professional Upskilling\" (funded by SkillsFuture Singapore / WDARF). Built Knowledge Unit Recommender, Adaptive Quiz, and LLM-based Personalised Feedback systems deployed on LMS.",
+    "chapter.experience.detail.2": "Educational training for deep learning and reinforcement learning using MATLAB and Simulink. Organised seminars and webinars at JAIST to share MATLAB knowledge across academic communities.",
+    "chapter.experience.detail.3": "Research on Gamification Design for Creative Processes; contributed to ongoing projects including COVID-19 game design studies.",
+    "chapter.experience.detail.4": "Supported research and laboratory activities; Teaching Assistant for the Game Informatics course — student support, exam scoring, and LMS management.",
+    "chapter.personality.detail.0": "Driven, ambitious, and deeply adaptable. Goal-oriented and invested in excellence and meaningful impact — motivated by achievement and the desire to inspire others through demonstrated success.",
+    "chapter.personality.detail.1": "Charismatic and empathetic leader with a rich inner world — equally driven by inspiring others and understanding the world on a deeper, principled level. A natural bridge between vision and people.",
+    "chapter.tap": "Tap Bell for a thought",
+    "chapter.about.note": "A little work, a little wander.",
+    "chapter.about.reply": "There’s always a side quest brewing.",
+    "chapter.about.intro": "The person behind the papers.",
+    "chapter.education.note": "Pick a stop along the way.",
+    "chapter.education.reply": "Good questions take time to steep.",
+    "chapter.education.intro": "From the first shot to a deeper brew.",
+    "chapter.experience.note": "Every role adds a new flavour.",
+    "chapter.experience.reply": "A little more of what went into the brew.",
+    "chapter.experience.intro": "Where curiosity becomes practice.",
+    "chapter.research.note": "Choose an ingredient to explore.",
+    "chapter.research.reply": "Different ingredients. Connected questions.",
+    "chapter.research.intro": "Four ingredients. One curious mind.",
+    "chapter.publications.note": "Pick a paper for the finer details.",
+    "chapter.publications.reply": "The full reading list is on Scholar.",
+    "chapter.publications.intro": "Ideas, brewed into papers.",
+    "chapter.personality.note": "Two ways to get to know me.",
+    "chapter.personality.reply": "A blend of ambition and empathy.",
+    "chapter.personality.intro": "A little of my personal blend.",
+    "chapter.connect.note": "Research question or coffee chat?",
+    "chapter.connect.reply": "Pull up a chair. Let’s talk.",
+    "chapter.connect.intro": "Good conversations start here.",
+    "chapter.about.contact": "Let’s connect",
+    "chapter.about.summary": "Learning science at work. Games, little adventures, and café discoveries after hours.",
+    "chapter.about.work": "In the lab",
+    "chapter.about.life": "After hours",
+    "chapter.about.blend": "Explore my personal blend",
+    "chapter.thesis": "Open my doctoral thesis",
+    "chapter.research.papers": "See the published work",
+    "chapter.scholar": "View all on Google Scholar",
+    "chapter.copy": "Copy email address",
+    "chapter.profiles": "More places to find me",
+    "chapter.copied": "Copied. Let’s talk!",
+    "chapter.copy.fail": "Please copy: punyawee@ahlab.org",
+    "cafe.brand": "Bell's little corner",
+    "cafe.hello": "Say hello",
+    "cafe.greeting": "Hi, I'm Bell.",
+    "cafe.headline": "Always brewing something.",
+    "cafe.name": "Punyawee Anunpattana",
+    "cafe.role": "Research Fellow · AHLab, NUS · Singapore",
+    "cafe.lede": "A curious mind exploring how we learn, through AI, play, and a good cup of coffee.",
+    "cafe.explore": "Explore my research",
+    "cafe.tap": "Coffee break? Tap Bell.",
+    "cafe.note.0": "Pull up a chair. Curious minds welcome.",
+    "cafe.note.1": "Cold brew in hand. New ideas on my mind.",
+    "cafe.note.2": "My favourite blend? Learning science + AI.",
+    "cafe.note.3": "Off duty: games, little adventures, and café hopping.",
+    "cafe.work": "Fresh from the lab",
+    "cafe.work.desc": "Selected publications",
+    "cafe.journey": "From bean to brew",
+    "cafe.journey.desc": "Education & experience",
+    "cafe.beyond": "Beyond the lab",
+    "cafe.beyond.desc": "The person behind the papers",
+    "cafe.back": "Back to the coffee table",
+    "cafe.menu": "Explore Bell's story",
+    "cafe.topics": "Portfolio topics",
+    "cafe.skip": "Skip to main content",
+    "cafe.theme": "Toggle dark mode",
+    "cafe.language": "Switch to Thai",
+    "cafe.cv": "Request CV by email",
     'tab.about':        'About',
     'tab.education':    'Education',
     'tab.experience':   'Experience',
@@ -179,7 +278,7 @@ const TRANSLATIONS = {
     'brew.americano':   'Americano',
     'brew.coldbrew':    'Cold Brew',
     'research.empty':   'Pick a field to see what’s brewing.',
-    'link.cv.desc':     'The full menu (PDF)',
+    'link.cv.desc':     'Request the full CV by email',
     'footer.brewed':    'Brewed in Singapore',
     'section.about':        'About',
     'section.education':    'Education',
@@ -201,6 +300,101 @@ const TRANSLATIONS = {
     'link.ahlab':       'AHLab Profile',
   },
   th: {
+    "feed.button": "เติมโคลด์บรูว์ให้เบลล์",
+    "feed.cup": "แก้วที่เสิร์ฟแล้ว",
+    "feed.cups": "แก้วที่เสิร์ฟแล้ว",
+    "feed.browser": "จากคุณ ในเบราว์เซอร์นี้",
+    "feed.session": "จากคุณ ในการเข้าชมครั้งนี้",
+    "feed.note.0": "เติมกาแฟให้หน่อยครับ ไอเดียดี ๆ ต้องมีโคลด์บรูว์",
+    "feed.note.1": "อ้า… แก้วนี้ใช่เลย ขอบคุณครับ!",
+    "feed.note.2": "อีกหนึ่งจิบ ใกล้ไอเดียใหม่อีกนิด",
+    "feed.note.3": "คุณเติมกาแฟ ผมเติมความอยากรู้",
+    "feed.note.5": "ห้าแก้วแล้ว! ยกให้เป็นบาริสต้าคนโปรดเลย",
+    "feed.note.10": "สิบแก้วแล้ว คาเฟ่เล็ก ๆ นี้มีขาประจำแล้วครับ!",
+    "feed.note.25": "ยี่สิบห้าแก้ว! สงสัยต้องหาโต๊ะกาแฟใหญ่กว่านี้",
+    "poster.research": "เริ่มที่ความสงสัย",
+    "poster.research.desc": "AI การเรียนรู้ และการเล่น",
+    "poster.papers": "ไอเดียบนหน้ากระดาษ",
+    "poster.about": "ตัวจริงของเบล",
+    "poster.degree": "Ph.D.",
+    "chapter.choose": "เลือกเรื่องที่อยากอ่าน",
+    "chapter.tap.short": "แตะเบล",
+    "chapter.research.ai": "การเรียนรู้ที่ปรับให้เหมาะกับแต่ละคน ผ่านแบบทดสอบและคำแนะนำเฉพาะบุคคล",
+    "chapter.research.notes": "อ่านเบื้องหลังงานวิจัย",
+    "chapter.research.game": "ใช้ความท้าทายและการเล่น ให้แบบทดสอบในห้องเรียนน่าสนุกและมีส่วนร่วมมากขึ้น",
+    "chapter.research.entertainment": "ค้นหาว่าอะไรทำให้เกมสนุก ผ่านทฤษฎี Game Refinement",
+    "chapter.research.edtech": "นำการเรียนรู้สั้น ๆ ที่ขับเคลื่อนด้วย AI มาอยู่ในชีวิตและการทำงานประจำวัน",
+    "chapter.research.detail.0": "พัฒนาระบบแบบทดสอบที่ปรับตามผู้เรียนและประสบการณ์เรียนรู้เฉพาะบุคคลแบบเรียลไทม์ โดยผสานแมชชีนเลิร์นนิงกับความเข้าใจจากจิตวิทยาการศึกษา เพื่อยกระดับผลลัพธ์การเรียนรู้ในวงกว้าง",
+    "chapter.research.detail.1": "ศึกษาว่ากลไกเกมที่ใช้ความท้าทายเปลี่ยนการทำแบบทดสอบในห้องเรียนให้มีส่วนร่วมและรู้สึกคุ้มค่าได้อย่างไร งานวิจัยที่ตีพิมพ์แสดงผลด้านการมีส่วนร่วมและการจดจำความรู้",
+    "chapter.research.detail.2": "ประยุกต์ทฤษฎี Game Refinement และแบบจำลองการประมวลผลสัญญาณเพื่อวัดและพัฒนาความสนุกของเกม โดยเชื่อมประสบการณ์ผู้เล่นเข้ากับคุณสมบัติทางคณิตศาสตร์ของโครงสร้างและการออกแบบเกม",
+    "chapter.research.detail.3": "ทำและนำโครงการวิจัยสู่การใช้งานจริง โดยพัฒนาแอปไมโครเลิร์นนิงที่ใช้ AI และผสานกับวิถีชีวิต ให้ผู้ใหญ่เรียนรู้ต่อเนื่องได้ระหว่างการใช้ชีวิตและทำงาน",
+    "chapter.experience.detail.0": "พัฒนาโซลูชันการเรียนรู้แบบปรับตัวด้วย AI และ LLM สำหรับหลักสูตร Continuing Education & Training (CET) โดยนำแนวทางวิจัยมาประยุกต์ใช้กับเทคโนโลยีการศึกษา",
+    "chapter.experience.detail.1": "นำโครงการ Improving Adaptive Learning for Professional Upskilling ซึ่งได้รับทุนจาก SkillsFuture Singapore / WDARF พัฒนาระบบแนะนำหน่วยความรู้ แบบทดสอบปรับตามผู้เรียน และคำแนะนำเฉพาะบุคคลด้วย LLM เพื่อใช้งานบน LMS",
+    "chapter.experience.detail.2": "จัดอบรมด้าน Deep Learning และ Reinforcement Learning ด้วย MATLAB และ Simulink พร้อมจัดสัมมนาและเว็บบินาร์ที่ JAIST เพื่อแบ่งปันความรู้กับชุมชนวิชาการ",
+    "chapter.experience.detail.3": "วิจัยการออกแบบ Gamification เพื่อกระบวนการสร้างสรรค์ และร่วมโครงการวิจัยอื่น รวมถึงการศึกษาออกแบบเกมเกี่ยวกับ COVID-19",
+    "chapter.experience.detail.4": "สนับสนุนงานวิจัยและกิจกรรมในห้องปฏิบัติการ เป็นผู้ช่วยสอนวิชา Game Informatics ดูแลผู้เรียน ตรวจข้อสอบ และจัดการระบบ LMS",
+    "chapter.personality.detail.0": "มุ่งมั่น ทะเยอทะยาน และปรับตัวได้ดี ให้ความสำคัญกับเป้าหมาย คุณภาพ และผลลัพธ์ที่มีความหมาย พร้อมส่งแรงบันดาลใจผ่านสิ่งที่ลงมือทำสำเร็จ",
+    "chapter.personality.detail.1": "ชอบเชื่อมโยงผู้คนด้วยความเข้าอกเข้าใจ และมีโลกภายในที่ลึกซึ้ง สนใจทั้งการสร้างแรงบันดาลใจและการเข้าใจโลกอย่างมีหลักการ เชื่อมภาพอนาคตเข้ากับผู้คน",
+    "chapter.tap": "แตะเบลเพื่ออ่านเกร็ดสั้น ๆ",
+    "chapter.about.note": "เรื่องงานบ้าง เรื่องเที่ยวบ้าง",
+    "chapter.about.reply": "มีเรื่องนอกตำราให้ลองเสมอ",
+    "chapter.about.intro": "รู้จักคนเบื้องหลังงานวิจัย",
+    "chapter.education.note": "ลองเลือกสักช่วงของการเดินทาง",
+    "chapter.education.reply": "คำถามดี ๆ ต้องให้เวลาค่อย ๆ สกัด",
+    "chapter.education.intro": "จากช็อตแรก สู่รสชาติที่ลึกขึ้น",
+    "chapter.experience.note": "ทุกบทบาทเติมรสชาติใหม่",
+    "chapter.experience.reply": "เบื้องหลังแก้วนี้มีอะไรอีกนิด",
+    "chapter.experience.intro": "เมื่อความสงสัยได้ลงมือทำจริง",
+    "chapter.research.note": "เลือกส่วนผสมที่อยากรู้จัก",
+    "chapter.research.reply": "ต่างส่วนผสม แต่คำถามเชื่อมถึงกัน",
+    "chapter.research.intro": "สี่ส่วนผสม จากความอยากรู้อยากเห็น",
+    "chapter.publications.note": "เลือกสักเรื่อง แล้วอ่านรายละเอียดต่อ",
+    "chapter.publications.reply": "ตามอ่านต่อได้ที่ Google Scholar",
+    "chapter.publications.intro": "ไอเดียที่ค่อย ๆ ชงออกมาเป็นงานวิจัย",
+    "chapter.personality.note": "อีกสองมุมให้ได้รู้จักกัน",
+    "chapter.personality.reply": "ผสมความมุ่งมั่นกับความเข้าใจผู้คน",
+    "chapter.personality.intro": "ส่วนผสมเล็ก ๆ ที่เป็นตัวผม",
+    "chapter.connect.note": "คุยเรื่องวิจัย หรือพักจิบกาแฟดี",
+    "chapter.connect.reply": "เลื่อนเก้าอี้มานั่ง แล้วคุยกันครับ",
+    "chapter.connect.intro": "บทสนทนาดี ๆ เริ่มตรงนี้",
+    "chapter.about.contact": "มาทำความรู้จักกัน",
+    "chapter.about.summary": "ในแล็บค้นหาวิธีเรียนรู้ นอกแล็บสนุกกับเกม การเดินทาง และการค้นพบคาเฟ่ใหม่ ๆ",
+    "chapter.about.work": "เรื่องในแล็บ",
+    "chapter.about.life": "นอกเวลางาน",
+    "chapter.about.blend": "รู้จักส่วนผสมที่เป็นผม",
+    "chapter.thesis": "เปิดอ่านวิทยานิพนธ์ปริญญาเอก",
+    "chapter.research.papers": "ดูผลงานวิจัยที่ตีพิมพ์",
+    "chapter.scholar": "ดูผลงานทั้งหมดบน Google Scholar",
+    "chapter.copy": "คัดลอกอีเมล",
+    "chapter.profiles": "ช่องทางอื่น ๆ",
+    "chapter.copied": "คัดลอกแล้ว ไว้คุยกันครับ",
+    "chapter.copy.fail": "คัดลอกที่อยู่นี้ได้เลย: punyawee@ahlab.org",
+    "cafe.brand": "มุมเล็ก ๆ ของ Bell",
+    "cafe.hello": "ทักทายกัน",
+    "cafe.greeting": "สวัสดีครับ ผมเบล",
+    "cafe.headline": "มีเรื่องให้ชงเสมอ",
+    "cafe.name": "Punyawee Anunpattana",
+    "cafe.role": "นักวิจัย · AHLab, NUS · สิงคโปร์",
+    "cafe.lede": "ชอบค้นหาว่าคนเราเรียนรู้กันอย่างไร ผ่าน AI การเล่น และกาแฟดี ๆ สักแก้ว",
+    "cafe.explore": "สำรวจงานวิจัย",
+    "cafe.tap": "พักจิบกาแฟ? ลองแตะเบล",
+    "cafe.note.0": "นั่งก่อนครับ มีเรื่องให้คุยอีกเยอะ",
+    "cafe.note.1": "มือหนึ่งถือโคลด์บรูว์ ในหัวมีไอเดียใหม่",
+    "cafe.note.2": "เบลนด์ที่ชอบ? ศาสตร์การเรียนรู้ + AI",
+    "cafe.note.3": "นอกแล็บ: เล่นเกม ออกเที่ยว และตามหาคาเฟ่",
+    "cafe.work": "ชงสดจากแล็บ",
+    "cafe.work.desc": "ผลงานวิจัยที่คัดมา",
+    "cafe.journey": "จากเมล็ดสู่แก้ว",
+    "cafe.journey.desc": "การศึกษาและประสบการณ์",
+    "cafe.beyond": "นอกเวลางาน",
+    "cafe.beyond.desc": "รู้จักคนเบื้องหลังงานวิจัย",
+    "cafe.back": "กลับมาที่โต๊ะกาแฟ",
+    "cafe.menu": "สำรวจเรื่องราวของเบล",
+    "cafe.topics": "หัวข้อในพอร์ตโฟลิโอ",
+    "cafe.skip": "ข้ามไปยังเนื้อหา",
+    "cafe.theme": "สลับธีมสว่างและมืด",
+    "cafe.language": "เปลี่ยนเป็นภาษาอังกฤษ",
+    "cafe.cv": "ขอ CV ทางอีเมล",
     'tab.about':        'เกี่ยวกับ',
     'tab.education':    'การศึกษา',
     'tab.experience':   'ประสบการณ์',
@@ -218,7 +412,7 @@ const TRANSLATIONS = {
     'brew.americano':   'อเมริกาโน',
     'brew.coldbrew':    'โคลด์บรูว์',
     'research.empty':   'เลือกสักหัวข้อ แล้วดูว่ากำลังต้มอะไรอยู่',
-    'link.cv.desc':     'เมนูฉบับเต็ม (PDF)',
+    'link.cv.desc':     'ขอ CV ฉบับเต็มทางอีเมล',
     'footer.brewed':    'ชงที่สิงคโปร์',
     'section.about':        'เกี่ยวกับฉัน',
     'section.education':    'การศึกษา',
@@ -246,7 +440,7 @@ const TRANSLATIONS = {
   const btn  = document.querySelector('.lang-toggle');
   if (!btn) return;
 
-  let lang = localStorage.getItem('lang') || 'en';
+  let lang = preferences.get('lang') === 'th' ? 'th' : 'en';
 
   function applyLang(l) {
     lang = l;
@@ -257,101 +451,16 @@ const TRANSLATIONS = {
       const t = TRANSLATIONS[l]?.[key];
       if (t !== undefined) setText(el, t);
     });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const label = TRANSLATIONS[l]?.[el.dataset.i18nAria];
+      if (label) el.setAttribute('aria-label', label);
+    });
     btn.textContent = l === 'en' ? 'TH' : 'EN';
-    localStorage.setItem('lang', l);
+    preferences.set('lang', l);
   }
 
   btn.addEventListener('click', () => applyLang(lang === 'en' ? 'th' : 'en'));
   applyLang(lang);
-})();
-
-// ─── Tab navigation ──────────────────────────────────────────────
-//
-// Tabs:
-//   • Click → smooth scroll to section (scroll-margin-top handles offset)
-//   • Scroll → active tab follows the section in the upper viewport
-//   • Tab bar scrolls the active tab into view on mobile
-//
-(function initTabs() {
-  const tabs     = Array.from(document.querySelectorAll('.tab'));
-  const sections = Array.from(document.querySelectorAll('.section[id]'));
-
-  if (!tabs.length || !sections.length) return;
-
-  function setActive(id) {
-    tabs.forEach(t => {
-      const isActive = t.getAttribute('data-section') === id;
-      t.classList.toggle('active', isActive);
-      if (isActive) {
-        // Scroll active tab into view horizontally on mobile
-        t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
-    });
-  }
-
-  // Click: prevent default, smooth-scroll to section
-  tabs.forEach(tab => {
-    tab.addEventListener('click', e => {
-      e.preventDefault();
-      const id = tab.getAttribute('data-section');
-      const target = document.getElementById(id);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        lastClicked = id;
-        setActive(id);
-      }
-    });
-  });
-
-  // Scroll: track which section occupies the top of the viewport.
-  // rootMargin '-48px 0px -55% 0px' means a section fires when its
-  // top edge enters the top 45% of the viewport (below the tab nav).
-  const visible = new Set();
-  const BAND = 52;              // tab-nav height + a few px of slack
-  let lastClicked = null;
-
-  function pick() {
-    if (!visible.size) return;
-
-    const all = [...visible].map(el => ({ el, r: el.getBoundingClientRect() }));
-
-    // At the end of the document the final sections can never reach the
-    // reading band — the page simply runs out of scroll. Without this, the
-    // last sections are permanently unreachable by the scroll-spy.
-    const atBottom =
-      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-
-    const passed = all.filter(o => o.r.top <= BAND);
-    const pool   = atBottom ? all : (passed.length ? passed : all);
-
-    // Paired sections sit at the same top, so they always tie. Honour the
-    // tab the user actually clicked; otherwise take the leftmost.
-    pool.sort((a, b) => b.r.top - a.r.top || a.r.left - b.r.left);
-    const tied = pool.filter(o => Math.abs(o.r.top - pool[0].r.top) < 2);
-    setActive((tied.find(o => o.el.id === lastClicked) || pool[0]).el.id);
-  }
-
-  const scrollObserver = new IntersectionObserver(
-    entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) visible.add(e.target);
-        else visible.delete(e.target);
-      });
-      pick();
-    },
-    { rootMargin: '-48px 0px -55% 0px', threshold: 0 }
-  );
-
-  sections.forEach(s => scrollObserver.observe(s));
-
-  // The observer stops firing once scrolling bottoms out, so the at-bottom
-  // case needs its own (rAF-throttled) trigger.
-  let ticking = false;
-  addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => { ticking = false; pick(); });
-  }, { passive: true });
 })();
 
 // ─── Education timeline — click to reveal degree detail ─────────────
@@ -368,7 +477,10 @@ const TRANSLATIONS = {
   list.classList.add('edu-js');
 
   function activate(key) {
-    cols.forEach(c => c.classList.toggle('edu-tl-active', c.dataset.for === key));
+    cols.forEach(c => {
+      c.classList.toggle('edu-tl-active', c.dataset.for === key);
+      c.setAttribute('aria-pressed', String(c.dataset.for === key));
+    });
     items.forEach(el => el.classList.toggle('edu-visible', el.dataset.degree === key));
   }
 
@@ -380,37 +492,6 @@ const TRANSLATIONS = {
   });
 
   activate('phd'); // default: show PhD on load
-})();
-
-// ─── Hero figure parallax ────────────────────────────────────────────
-//
-// Translates the icosahedron figure gently toward the cursor (max ±8px).
-// Uses lerp (0.08) for a trailing lag. Starts after hero entrance (1s).
-//
-(function initHeroParallax() {
-  const hero   = document.querySelector('.hero-inner');
-  const figure = document.querySelector('.hero-figure');
-  if (!hero || !figure) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (window.matchMedia('(hover: none)').matches) return;
-
-  let tx = 0, ty = 0, cx = 0, cy = 0;
-
-  hero.addEventListener('mousemove', e => {
-    const r = hero.getBoundingClientRect();
-    tx = ((e.clientX - r.left) / r.width  - 0.5) * 8;
-    ty = ((e.clientY - r.top)  / r.height - 0.5) * 8;
-  });
-  hero.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
-
-  setTimeout(() => {
-    (function tick() {
-      cx += (tx - cx) * 0.08;
-      cy += (ty - cy) * 0.08;
-      figure.style.transform = `translate(${cx.toFixed(2)}px, ${cy.toFixed(2)}px)`;
-      requestAnimationFrame(tick);
-    })();
-  }, 1000);
 })();
 
 // ─── Publication items — staggered entrance ──────────────────────────
@@ -464,53 +545,196 @@ const TRANSLATIONS = {
 
 // ─── Research keyword cloud ──────────────────────────────────────────
 (function initKwCloud() {
-  const cloud     = document.getElementById('kw-cloud');
-  const descPanel = document.getElementById('kw-desc-panel');
-  if (!cloud) return;
-
-  let pinned = null; // null = no field pinned (hover mode active)
-
-  function light(field) {
+  const cloud = document.getElementById('kw-cloud');
+  const panel = document.getElementById('kw-desc-panel');
+  if (!cloud || !panel) return;
+  const buttons = [...cloud.querySelectorAll('.kw-field')];
+  function choose(field) {
     cloud.classList.add('has-focus');
-    cloud.querySelectorAll('.kw-pill').forEach(el => {
-      el.classList.toggle('kw-lit', el.dataset.field === field);
+    buttons.forEach(button => {
+      const active = button.dataset.field === field;
+      button.classList.toggle('kw-lit', active);
+      button.setAttribute('aria-pressed', String(active));
     });
-    if (descPanel) {
-      descPanel.querySelectorAll('.kw-desc').forEach(d => {
-        d.classList.toggle('kw-desc--active', d.dataset.field === field);
-      });
+    panel.querySelectorAll('.kw-desc').forEach(description => description.classList.toggle('kw-desc--active', description.dataset.field === field));
+  }
+  buttons.forEach(button => button.addEventListener('click', () => choose(button.dataset.field)));
+  choose('ai');
+})();
+
+// Each chapter keeps its detail local and lets Bell react to exploration.
+// This setup runs after the dictionaries and chapter navigation are ready.
+document.addEventListener('DOMContentLoaded', () => {
+  const reader = document.querySelector('.story-reader');
+  if (!reader) return;
+  const timers = new WeakMap();
+  function react(section, toggle = false) {
+    const companion = section.querySelector('.chapter-companion');
+    if (!companion) return;
+    const coffee = toggle ? !companion.classList.contains('is-coffee') : true;
+    companion.classList.toggle('is-coffee', coffee);
+    const note = companion.querySelector('.chapter-note');
+    const key = `chapter.${section.id}.${coffee ? 'reply' : 'note'}`;
+    note.dataset.i18n = key;
+    setText(note, TRANSLATIONS[document.documentElement.lang]?.[key] || TRANSLATIONS.en[key]);
+    clearTimeout(timers.get(companion));
+    companion.classList.remove('is-reacting');
+    requestAnimationFrame(() => {
+      companion.classList.add('is-reacting');
+      timers.set(companion, setTimeout(() => companion.classList.remove('is-reacting'), 700));
+    });
+  }
+  reader.querySelectorAll('.chapter-bell').forEach(button => {
+    button.disabled = false;
+    button.addEventListener('click', () => react(button.closest('.section'), true));
+  });
+  reader.addEventListener('click', event => {
+    if (event.target.closest('.edu-tl-col, .kw-field')) react(event.target.closest('.section'));
+  });
+  reader.addEventListener('toggle', event => {
+    if (event.target.matches('details[open]')) react(event.target.closest('.section'));
+  }, true);
+
+  const copyButton = reader.querySelector('.copy-email');
+  copyButton.hidden = false;
+  copyButton.addEventListener('click', async () => {
+    let key = 'chapter.copied';
+    try { await navigator.clipboard.writeText('punyawee@ahlab.org'); }
+    catch { key = 'chapter.copy.fail'; }
+    const status = reader.querySelector('.copy-status');
+    status.dataset.i18n = key;
+    setText(status, TRANSLATIONS[document.documentElement.lang]?.[key] || TRANSLATIONS.en[key]);
+    react(document.getElementById('connect'));
+  });
+
+  // Printing should include the entire CV, including closed disclosures.
+  let printState = [];
+  window.addEventListener('beforeprint', () => {
+    printState = [...reader.querySelectorAll('details')].map(detail => ({ detail, open: detail.open, name: detail.getAttribute('name') }));
+    printState.forEach(({detail}) => { detail.removeAttribute('name'); detail.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    printState.forEach(({detail, open, name}) => { detail.open = open; if (name) detail.setAttribute('name', name); });
+    printState = [];
+  });
+});
+
+// One topic at a time. Without JavaScript the complete, linked CV stays readable.
+(function initCoffeeStories() {
+  const home = document.querySelector('.cafe-home');
+  const reader = document.querySelector('.story-reader');
+  const navigation = document.querySelector('.reader-navigation');
+  const sections = Array.from(reader.querySelectorAll('.section[id]'));
+  const topicLinks = Array.from(navigation.querySelectorAll('[data-story-link]'));
+  let returnTarget = null;
+
+  function showTopic(id, focus = true) {
+    const selected = sections.find(section => section.id === id);
+    home.hidden = Boolean(selected);
+    reader.hidden = !selected;
+    sections.forEach(section => { section.hidden = section !== selected; });
+    topicLinks.forEach(link => {
+      if (link.hash === `#${id}`) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+    document.getElementById('chapter-picker').value = selected ? id : 'research';
+    document.body.classList.toggle('reading-story', Boolean(selected));
+    if (focus) {
+      const target = selected?.querySelector('h2') || returnTarget || document.getElementById('cafe-heading');
+      if (selected) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+      // A new topic starts at its heading; no long animated trip through the CV.
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }
 
-  function clear() {
-    cloud.classList.remove('has-focus');
-    cloud.querySelectorAll('.kw-lit').forEach(el => el.classList.remove('kw-lit'));
-    if (descPanel) descPanel.querySelectorAll('.kw-desc--active').forEach(d => d.classList.remove('kw-desc--active'));
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[data-story-link]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (home.contains(link)) returnTarget = link;
+    if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+    showTopic(link.hash.slice(1));
+  });
+  // Hash links, refresh, browser Back/Forward, and shared section URLs all work.
+  window.addEventListener('popstate', () => showTopic(location.hash.slice(1)));
+  window.addEventListener('hashchange', () => showTopic(location.hash.slice(1)));
+  document.getElementById('chapter-picker').addEventListener('change', event => {
+    navigation.querySelector('a[href="#' + event.target.value + '"]').click();
+  });
+  navigation.hidden = false;
+  document.body.classList.add('story-enhanced');
+  showTopic(location.hash.slice(1), false);
+
+  const character = document.querySelector('.bell-character');
+  const scene = document.querySelector('.bell-scene');
+  const note = document.getElementById('bell-note');
+  const tally = document.getElementById('brew-count');
+  const total = tally.querySelector('.brew-total');
+  const units = tally.querySelector('[data-i18n]');
+  const scope = tally.querySelector('.brew-scope');
+  const storageKey = 'bell-cold-brews';
+  const saved = Number(preferences.get(storageKey));
+  let count = Number.isSafeInteger(saved) && saved >= 0 ? saved : 0;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let reactions = [];
+
+  function translate(element, key) {
+    element.dataset.i18n = key;
+    setText(element, TRANSLATIONS[document.documentElement.lang]?.[key] || TRANSLATIONS.en[key]);
   }
 
-  // Click: pin / unpin a field
-  cloud.addEventListener('click', e => {
-    const btn = e.target.closest('.kw-field');
-    if (!btn) return;
-    const field = btn.dataset.field;
-    if (pinned === field) {
-      pinned = null;
-      clear();
-    } else {
-      pinned = field;
-      light(field);
-    }
-  });
+  function renderCount() {
+    total.textContent = new Intl.NumberFormat(document.documentElement.lang).format(count);
+    translate(units, count === 1 ? 'feed.cup' : 'feed.cups');
+    scene.classList.toggle('has-coffee', count > 0);
+  }
 
-  // Hover: preview (only when nothing is pinned)
-  cloud.querySelectorAll('.kw-field').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-      if (pinned) return;
-      light(btn.dataset.field);
-    });
-    btn.addEventListener('mouseleave', () => {
-      if (pinned) return;
-      clear();
-    });
+  function saveCount() {
+    preferences.set(storageKey, String(count));
+    translate(scope, preferences.get(storageKey) === String(count) ? 'feed.browser' : 'feed.session');
+  }
+
+  function stopReaction() {
+    reactions.forEach(animation => animation.cancel());
+    reactions = [];
+  }
+
+  saveCount();
+  renderCount();
+  tally.hidden = false;
+  character.disabled = false;
+  character.addEventListener('click', () => {
+    count = Math.min(count + 1, Number.MAX_SAFE_INTEGER);
+    saveCount();
+    renderCount();
+    const moment = [5, 10, 25].includes(count) ? count : ((count - 1) % 3) + 1;
+    translate(note, `feed.note.${moment}`);
+    stopReaction();
+    // A single, interruptible delivery per click; rapid taps still count every cup.
+    if (reducedMotion.matches || !Element.prototype.animate) return;
+    const portrait = character.querySelector('.bell-portrait');
+    reactions = [
+      portrait.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'translateY(-5px) rotate(-4deg)', offset: .4 },
+        { transform: 'rotate(2deg)', offset: .7 },
+        { transform: 'rotate(0deg)' }
+      ], { duration: 620, easing: 'ease-out' }),
+      character.querySelector('.brew-delivery').animate([
+        { opacity: 0, transform: 'translate(40px, 48px) rotate(18deg)' },
+        { opacity: 1, offset: .2 },
+        { opacity: 1, offset: .65 },
+        { opacity: 0, transform: 'translate(0, -10px) rotate(-8deg)' }
+      ], { duration: 650, easing: 'ease-out' }),
+      character.querySelector('.brew-plus').animate([
+        { opacity: 0, transform: 'translateY(12px) scale(.8)' },
+        { opacity: 1, offset: .2 },
+        { opacity: 1, offset: .65 },
+        { opacity: 0, transform: 'translateY(-24px) scale(1)' }
+      ], { duration: 850, easing: 'ease-out' })
+    ];
   });
+  document.querySelector('.lang-toggle').addEventListener('click', renderCount);
+  reducedMotion.addEventListener('change', stopReaction);
 })();

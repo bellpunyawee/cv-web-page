@@ -9,130 +9,93 @@
 </head>
 <body>
 
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content" data-i18n="cafe.skip">Skip to main content</a>
 
-  <div class="accent-bar"></div>
-
-  <!-- ─── Tab Navigation ──────────────────────────────────────────── -->
-  <nav class="tab-nav" id="tab-nav" aria-label="Section navigation">
-    <div class="tab-nav-inner">
-
-      <div class="tab-list">
-        <a class="tab active" href="#about" data-section="about">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-          <span data-i18n="tab.about">About</span>
-        </a>
-        <a class="tab" href="#education" data-section="education">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          <span data-i18n="tab.education">Education</span>
-        </a>
-        <a class="tab" href="#experience" data-section="experience">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" x2="12" y1="12" y2="12"/><line x1="12" x2="12.01" y1="12" y2="12"/></svg>
-          <span data-i18n="tab.experience">Experience</span>
-        </a>
-        <a class="tab" href="#research" data-section="research">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <span data-i18n="tab.research">Research</span>
-        </a>
-        <a class="tab" href="#publications" data-section="publications">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          <span data-i18n="tab.publications">Publications</span>
-        </a>
-        <a class="tab" href="#personality" data-section="personality">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span data-i18n="tab.personality">Personality</span>
-        </a>
-        <a class="tab" href="#connect" data-section="connect">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          <span data-i18n="tab.connect">Connect</span>
-        </a>
-      </div>
-
+<header class="cafe-header">
+    <a class="cafe-brand" href="#home" data-story-link><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h12v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8ZM16 9h2a3 3 0 1 1 0 6h-2M7 2v2m4-2v2M2 22h18"/></svg><span data-i18n="cafe.brand">Bell's little corner</span></a>
+    <div class="cafe-tools">
+      <a class="cafe-contact" href="#connect" data-story-link data-i18n="cafe.hello">Say hello</a>
       <div class="nav-controls">
-        <button class="theme-toggle" aria-label="Toggle dark mode">
+        <button class="theme-toggle" aria-label="Toggle dark mode" data-i18n-aria="cafe.theme">
           <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
         </button>
-        <button class="lang-toggle" aria-label="Switch language">TH</button>
+        <button class="lang-toggle" aria-label="Switch language" data-i18n-aria="cafe.language">TH</button>
       </div>
-
     </div>
-  </nav>
+  </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
-    <!-- ─── Hero ─────────────────────────────────────────────────── -->
-    <section class="hero">
-      <div class="hero-inner">
+    <div class="cafe-home poster-home" id="home">
+      <section class="cafe-hero" aria-labelledby="cafe-heading">
+        <h1 id="cafe-heading" tabindex="-1" data-i18n="cafe.greeting">Hi, I'm Bell.</h1>
+        <div class="cafe-intro">
 
-        <div class="hero-text">
-          <p class="eyebrow" data-i18n="hero.eyebrow">Research Fellow · CHILL · AHLab, NUS</p>
-          <h1 class="name">
-            <span class="name-first">Bell<!-- barista's swash: one hand-drawn stroke, drawn on load -->
-              <svg class="name-swash" viewBox="0 0 240 26" fill="none" aria-hidden="true" focusable="false">
-                <path d="M4 17C36 6 78 3 118 6c26 2 52 7 78 4 14-2 26-6 36-9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-              </svg>
+          <a class="cafe-identity" href="#about" data-story-link>
+
+            <span><span class="cafe-name" data-i18n="cafe.name">Punyawee Anunpattana</span><span class="cafe-role" data-i18n="cafe.role">Research Fellow · AHLab, NUS · Singapore</span></span>
+          </a>
+          <p class="cafe-lede" data-i18n="cafe.lede">A curious mind exploring how we learn, through AI, play, and a good cup of coffee.</p>
+          <a class="cafe-primary" href="#research" data-story-link><span data-i18n="cafe.explore">Explore my research</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        </div>
+        <div class="bell-scene">
+
+          <button class="bell-character" type="button" aria-label="Feed me cold brew" data-i18n-aria="feed.button" aria-describedby="bell-note brew-count" disabled>
+            <span class="bell-portrait" aria-hidden="true">
+              <img class="bell-pose bell-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448" fetchpriority="high">
+              <img class="bell-pose bell-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448" decoding="async">
+              <span class="brew-delivery"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h4l2 7M5 7h14M6 7l2 14h8l2-14M7 12h10M10 15l1 2m3-3 1 2"/></svg></span>
+              <span class="brew-plus">+1</span>
             </span>
-            <span class="name-full">Punyawee Anunpattana</span>
-          </h1>
-          <p class="name-sub">ベル・プンヤウィー・アヌンパッタナー&ensp;·&ensp;Singapore</p>
-          <p class="tagline" data-i18n="hero.tagline">AI &amp; Gamification&ensp;·&ensp;Educational Technology&ensp;·&ensp;Ph.D. JAIST</p>
+            <span class="bell-invitation"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h4l2 7M5 7h14M6 7l2 14h8l2-14M7 12h10M10 15l1 2m3-3 1 2"/></svg><span data-i18n="feed.button">Feed me cold brew</span></span>
+          </button>
+          <p class="brew-tally" id="brew-count" aria-live="polite" aria-atomic="true" hidden><span class="brew-total">0</span> <span data-i18n="feed.cups">cups served</span><span class="brew-scope" data-i18n="feed.browser">by you, in this browser</span></p>
         </div>
-
-        <figure class="hero-figure" aria-hidden="true">
-          <canvas id="polyhedron" width="280" height="280"></canvas>
-        </figure>
-
+        <div class="poster-margin"><p class="poster-motto" data-i18n="cafe.headline">Always brewing something.</p><p class="bell-note"><span id="bell-note" data-i18n="feed.note.0">Please feed me. Great ideas run on cold brew.</span></p></div>
+      </section>
+      <nav class="coffee-menu poster-grid" aria-label="Explore Bell's story" data-i18n-aria="cafe.menu">
+        <a class="story-poster story-poster--research" href="#research" data-story-link>
+          <span class="poster-copy"><strong><span data-i18n="poster.research">A curious mind.</span></strong><span><span data-i18n="poster.research.desc">AI, learning & play</span></span></span>
+          <span class="poster-chibi" aria-hidden="true"><img src="bell-chibi-coffee.png" alt="" width="1086" height="1448"></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a class="story-poster story-poster--papers" href="#publications" data-story-link>
+          <span class="poster-copy"><strong><span data-i18n="poster.papers">Ideas, in print.</span></strong><span data-i18n="cafe.work.desc">Selected publications</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a class="story-poster story-poster--journey" href="#education" data-story-link>
+          <span class="poster-copy"><strong data-i18n="cafe.journey">From bean to brew</strong><span data-i18n="cafe.journey.desc">Education & experience</span></span>
+          <span class="poster-degree" data-i18n="poster.degree">Ph.D.</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a class="story-poster story-poster--about" href="#about" data-story-link>
+          <img class="poster-photo" src="photo.jpg" alt="Punyawee Anunpattana" width="400" height="400">
+          <span class="poster-copy"><strong><span data-i18n="poster.about">The real Bell.</span></strong><span data-i18n="cafe.beyond.desc">The person behind the papers</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+      </nav>
+    </div>
+    <div class="story-reader">
+      <div class="reader-navigation" hidden>
+        <a class="reader-back" href="#home" data-story-link><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg><span data-i18n="cafe.back">Back to the coffee table</span></a>
+        <label class="reader-picker"><span class="visually-hidden"><span data-i18n="chapter.choose">Choose a chapter</span></span><select id="chapter-picker"><option value="research" data-i18n="tab.research">Research</option><option value="publications" data-i18n="tab.publications">Publications</option><option value="education" data-i18n="tab.education">Education</option><option value="experience" data-i18n="tab.experience">Experience</option><option value="about" data-i18n="tab.about">About</option><option value="personality" data-i18n="tab.personality">Personality</option><option value="connect" data-i18n="tab.connect">Connect</option></select></label>
+        <nav class="reader-topics" aria-label="Portfolio topics" data-i18n-aria="cafe.topics">
+          <a href="#research" data-story-link data-i18n="tab.research">Research</a>
+          <a href="#publications" data-story-link data-i18n="tab.publications">Publications</a>
+          <a href="#education" data-story-link data-i18n="tab.education">Education</a>
+          <a href="#experience" data-story-link data-i18n="tab.experience">Experience</a>
+          <a href="#about" data-story-link data-i18n="tab.about">About</a>
+          <a href="#personality" data-story-link data-i18n="tab.personality">Personality</a>
+          <a href="#connect" data-story-link data-i18n="tab.connect">Connect</a>
+        </nav>
       </div>
-    </section>
-
     <!-- ─── 01 About ──────────────────────────────────────────────── -->
-    <section class="section" id="about" aria-label="About">
-      <header class="section-head">
-        <span class="n">01</span>
-        <div class="rule"></div>
-        <h2 data-i18n="section.about">About</h2>
-      </header>
-
-      <!-- rail (รูป+โซเชียล) · lede เต็มความกว้าง · bio | aside -->
-      <div class="about-profile">
-
-        <div class="about-rail">
-          <div class="photo-wrap">
+    <section class="section" id="about" aria-label="About"><header class="chapter-head">
+ <div class="chapter-heading"><h2 data-i18n="section.about">About</h2><p><span data-i18n="chapter.about.intro">The person behind the papers.</span></p></div>
+ <div class="chapter-companion"><button class="chapter-bell" type="button" aria-label="Tap Bell for a thought" data-i18n-aria="chapter.tap" disabled><span class="chapter-portrait" aria-hidden="true"><img class="chapter-pose chapter-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448"><img class="chapter-pose chapter-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448"></span><span class="chapter-caption"><span data-i18n="chapter.tap.short">Tap Bell</span></span></button><p class="chapter-note" aria-live="polite" data-i18n="chapter.about.note">A little work, a little wander.</p></div>
+ </header><div class="about-story chapter-body"><div class="about-real"><div class="photo-wrap">
             <img src="photo.jpg" alt="Punyawee Anunpattana">
-          </div>
-          <nav class="about-social" aria-label="Contact and social profiles">
-            <a class="about-social-link" href="mailto:punyawee@ahlab.org" aria-label="Email">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </a>
-            <a class="about-social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae (PDF)">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-            </a>
-            <a class="about-social-link" href="https://linkedin.com/in/bell-punyawee" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a class="about-social-link" href="https://github.com/bellpunyawee" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            </a>
-            <a class="about-social-link" href="https://scholar.google.com/citations?user=J4xtAsQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            </a>
-            <a class="about-social-link" href="https://www.researchgate.net/profile/Punyawee-Anunpattana-2" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9C11.18 3.68 5.85 1.66 3.82 3.68c-2.04 2.04-.02 7.37 4.5 11.91s9.72 6.52 11.88 4.63z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.91-2.03-2.02-7.36-.02-11.88 4.5-4.54 4.54-6.54 9.87-4.52 11.91 2.04 2.04 7.37.02 11.9-4.5z"/></svg>
-            </a>
-            <a class="about-social-link" href="https://ahlab.org/people/punyawee-anunpattana/" target="_blank" rel="noopener noreferrer" aria-label="AHLab Profile">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </a>
-          </nav>
-        </div>
-
-      <!-- ─── Bio ──────────────────────────────────────── -->
-      <p class="lede" data-i18n="about.lede">
+          </div><p data-i18n="cafe.name">Punyawee Anunpattana</p><a class="story-link" href="#connect" data-story-link><span data-i18n="chapter.about.contact">Let’s connect</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div><div class="about-stories"><p class="chapter-lede"><span data-i18n="chapter.about.summary">Learning science at work. Games, little adventures, and café discoveries after hours.</span></p><details class="story-fold" ><summary><span data-i18n="chapter.about.work">In the lab</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="lede" data-i18n="about.lede">
         Brewing education just like my daily cold brew: clean, bold, steeped
         to perfection, and zero bitter aftertaste.
-      </p>
-
-      <div class="about-body">
+      </p><div class="about-body">
         <p data-i18n="about.p1">
           My 9-to-5 basically makes me the head barista at the Learning Science
           &#215; AI bar. I roast adaptive learning systems with gamified loops until
@@ -145,26 +108,20 @@
           Theory (yes, measuring flow state with the precision of a 0.1g digital
           coffee scale).
         </p>
-      </div>
-
-      <p class="about-aside" data-i18n="about.p3">
+      </div></div></details><details class="story-fold" ><summary><span data-i18n="chapter.about.life">After hours</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="about-aside" data-i18n="about.p3">
         Off the clock? Full-on side quests: gaming, binge-watching shows,
         booking impromptu trips on zero free time, and cafe-hopping for
         specialty drinks with questionable main-character energy&#8212;muscular dark
         roasts, nerdy oat lattes, chunky cappuccinos, soft-boy matchas, and
         broody dark cocoas. Honestly, what is my life?!
-      </p>
-
-      </div><!-- /.about-profile -->
-    </section>
+      </p></div></details><a class="story-link" href="#personality" data-story-link><span data-i18n="chapter.about.blend">Explore my personal blend</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div></div></section>
 
     <!-- ─── 02 Education ──────────────────────────────────────────── -->
     <section class="section" id="education" aria-label="Educational Background">
-      <header class="section-head">
-        <span class="n">02</span>
-        <div class="rule"></div>
-        <h2 data-i18n="section.education">Education</h2>
-      </header>
+      <header class="chapter-head">
+ <div class="chapter-heading"><h2 data-i18n="section.education">Education</h2><p><span data-i18n="chapter.education.intro">From the first shot to a deeper brew.</span></p></div>
+ <div class="chapter-companion"><button class="chapter-bell" type="button" aria-label="Tap Bell for a thought" data-i18n-aria="chapter.tap" disabled><span class="chapter-portrait" aria-hidden="true"><img class="chapter-pose chapter-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448"><img class="chapter-pose chapter-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448"></span><span class="chapter-caption"><span data-i18n="chapter.tap.short">Tap Bell</span></span></button><p class="chapter-note" aria-live="polite" data-i18n="chapter.education.note">Pick a stop along the way.</p></div>
+ </header>
 
       <!-- ─── Degree progression ───────────────────────── -->
       <div class="edu-timeline">
@@ -210,7 +167,7 @@
         </div>
 
         <!-- ─── PhD Thesis Feature ──────────────────────────────── -->
-        <div class="thesis-book-shadow" data-degree="phd">
+        <details class="story-fold" data-degree="phd"><summary><span data-i18n="chapter.thesis">Open my doctoral thesis</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><div class="thesis-book-shadow">
         <div class="thesis-book">
 
           <!-- Book spine -->
@@ -318,7 +275,7 @@
           </div>
 
         </div>
-        </div><!-- /thesis-book-shadow -->
+        </div></div></details><!-- /thesis-book-shadow -->
 
         <div class="edu-item" data-degree="ms">
           <div class="edu-icon" aria-hidden="true">
@@ -353,210 +310,90 @@
 
     <!-- ─── 03 Experience ────────────────────────────────────────── -->
     <section class="section" id="experience" aria-label="Work Experience">
-      <header class="section-head">
-        <span class="n">03</span>
-        <div class="rule"></div>
-        <h2 data-i18n="section.experience">Experience</h2>
-      </header>
+      <header class="chapter-head">
+ <div class="chapter-heading"><h2 data-i18n="section.experience">Experience</h2><p><span data-i18n="chapter.experience.intro">Where curiosity becomes practice.</span></p></div>
+ <div class="chapter-companion"><button class="chapter-bell" type="button" aria-label="Tap Bell for a thought" data-i18n-aria="chapter.tap" disabled><span class="chapter-portrait" aria-hidden="true"><img class="chapter-pose chapter-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448"><img class="chapter-pose chapter-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448"></span><span class="chapter-caption"><span data-i18n="chapter.tap.short">Tap Bell</span></span></button><p class="chapter-note" aria-live="polite" data-i18n="chapter.experience.note">Every role adds a new flavour.</p></div>
+ </header>
 
-      <div class="exp-timeline">
-
-        <div class="exp-item">
-          <div class="exp-marker">
-            <div class="exp-dot exp-dot--now"></div>
-            <div class="exp-connector"></div>
-          </div>
-          <div class="exp-body">
-            <div class="exp-head">
+      <div class="career-stories chapter-body"><details class="story-fold role-entry" name="career-chapters"><summary><span class="role-heading"><div class="exp-head">
               <p class="exp-title">Research Fellow</p>
               <p class="exp-period exp-period--now">May 2025 – Present</p>
-            </div>
-            <p class="exp-org">Centre for Holistic Inquiry into Lifelong Learning (CHILL)</p>
-            <p class="exp-company">National University of Singapore · Full-time · Singapore</p>
-            <p class="exp-desc">Developing AI and LLM-based adaptive learning solutions for Continuing Education &amp; Training (CET) courses, integrating advanced research practices into educational technology.</p>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-marker">
-            <div class="exp-dot"></div>
-            <div class="exp-connector"></div>
-          </div>
-          <div class="exp-body">
-            <div class="exp-head">
+            </div><p class="exp-org">Centre for Holistic Inquiry into Lifelong Learning (CHILL)</p></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="exp-company">National University of Singapore · Full-time · Singapore</p><p class="exp-desc" data-i18n="chapter.experience.detail.0">Developing AI and LLM-based adaptive learning solutions for Continuing Education &amp; Training (CET) courses, integrating advanced research practices into educational technology.</p></div></details>
+<details class="story-fold role-entry" name="career-chapters" ><summary><span class="role-heading"><div class="exp-head">
               <p class="exp-title">Research Fellow</p>
               <p class="exp-period">Aug 2023 – Apr 2025</p>
-            </div>
-            <p class="exp-org">Centre for Project and Facilities Management (CPFM)</p>
-            <p class="exp-company">National University of Singapore · Full-time · Singapore</p>
-            <p class="exp-desc">Led "Improving Adaptive Learning for Professional Upskilling" (funded by SkillsFuture Singapore / WDARF). Built Knowledge Unit Recommender, Adaptive Quiz, and LLM-based Personalised Feedback systems deployed on LMS.</p>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-marker">
-            <div class="exp-dot"></div>
-            <div class="exp-connector"></div>
-          </div>
-          <div class="exp-body">
-            <div class="exp-head">
+            </div><p class="exp-org">Centre for Project and Facilities Management (CPFM)</p></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="exp-company">National University of Singapore · Full-time · Singapore</p><p class="exp-desc" data-i18n="chapter.experience.detail.1">Led "Improving Adaptive Learning for Professional Upskilling" (funded by SkillsFuture Singapore / WDARF). Built Knowledge Unit Recommender, Adaptive Quiz, and LLM-based Personalised Feedback systems deployed on LMS.</p></div></details>
+<details class="story-fold role-entry" name="career-chapters" ><summary><span class="role-heading"><div class="exp-head">
               <p class="exp-title">Education Success &amp; Student Ambassador</p>
               <p class="exp-period">Aug 2021 – Mar 2023</p>
-            </div>
-            <p class="exp-org">MathWorks</p>
-            <p class="exp-company">Contract · Remote (Tokyo, Japan)</p>
-            <p class="exp-desc">Educational training for deep learning and reinforcement learning using MATLAB and Simulink. Organised seminars and webinars at JAIST to share MATLAB knowledge across academic communities.</p>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-marker">
-            <div class="exp-dot"></div>
-            <div class="exp-connector"></div>
-          </div>
-          <div class="exp-body">
-            <div class="exp-head">
+            </div><p class="exp-org">MathWorks</p></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="exp-company">Contract · Remote (Tokyo, Japan)</p><p class="exp-desc" data-i18n="chapter.experience.detail.2">Educational training for deep learning and reinforcement learning using MATLAB and Simulink. Organised seminars and webinars at JAIST to share MATLAB knowledge across academic communities.</p></div></details>
+<details class="story-fold role-entry" name="career-chapters" ><summary><span class="role-heading"><div class="exp-head">
               <p class="exp-title">Visiting Researcher</p>
               <p class="exp-period">Apr 2022 – Sep 2022</p>
-            </div>
-            <p class="exp-org">Dhurakij Pundit University</p>
-            <p class="exp-company">Internship · Bangkok, Thailand</p>
-            <p class="exp-desc">Research on Gamification Design for Creative Processes; contributed to ongoing projects including COVID-19 game design studies.</p>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-marker">
-            <div class="exp-dot"></div>
-            <div class="exp-connector"></div>
-          </div>
-          <div class="exp-body">
-            <div class="exp-head">
+            </div><p class="exp-org">Dhurakij Pundit University</p></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="exp-company">Internship · Bangkok, Thailand</p><p class="exp-desc" data-i18n="chapter.experience.detail.3">Research on Gamification Design for Creative Processes; contributed to ongoing projects including COVID-19 game design studies.</p></div></details>
+<details class="story-fold role-entry" name="career-chapters" ><summary><span class="role-heading"><div class="exp-head">
               <p class="exp-title">Laboratory &amp; Teaching Assistant</p>
               <p class="exp-period">May 2018 – Mar 2020</p>
-            </div>
-            <p class="exp-org">Japan Advanced Institute of Science and Technology (JAIST)</p>
-            <p class="exp-company">Contract · Nomi, Ishikawa, Japan</p>
-            <p class="exp-desc">Supported research and laboratory activities; Teaching Assistant for the Game Informatics course — student support, exam scoring, and LMS management.</p>
-          </div>
-        </div>
-
-      </div>
+            </div><p class="exp-org">Japan Advanced Institute of Science and Technology (JAIST)</p></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="exp-company">Contract · Nomi, Ishikawa, Japan</p><p class="exp-desc" data-i18n="chapter.experience.detail.4">Supported research and laboratory activities; Teaching Assistant for the Game Informatics course — student support, exam scoring, and LMS management.</p></div></details></div>
     </section>
 
     <!-- ─── 04 Research ───────────────────────────────────────────── -->
     <section class="section" id="research" aria-label="Research">
-      <header class="section-head">
-        <span class="n">04</span>
-        <div class="rule"></div>
-        <h2 data-i18n="section.research">Research</h2>
-      </header>
+      <header class="chapter-head">
+ <div class="chapter-heading"><h2 data-i18n="section.research">Research</h2><p><span data-i18n="chapter.research.intro">Four ingredients. One curious mind.</span></p></div>
+ <div class="chapter-companion"><button class="chapter-bell" type="button" aria-label="Tap Bell for a thought" data-i18n-aria="chapter.tap" disabled><span class="chapter-portrait" aria-hidden="true"><img class="chapter-pose chapter-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448"><img class="chapter-pose chapter-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448"></span><span class="chapter-caption"><span data-i18n="chapter.tap.short">Tap Bell</span></span></button><p class="chapter-note" aria-live="polite" data-i18n="chapter.research.note">Choose an ingredient to explore.</p></div>
+ </header>
 
       <!-- ─── Split: keyword cloud (left) + description (right) ──── -->
       <div class="research-body">
-      <div class="kw-cloud" id="kw-cloud" aria-label="Research areas — click a field to explore">
-
-        <button class="kw-pill kw-field" data-field="ai" type="button" data-i18n="research.ai-learning">AI-Driven Adaptive Learning</button>
-        <span class="kw-pill kw-tag" data-field="game">Challenge-Based</span>
-        <span class="kw-pill kw-tag" data-field="entertainment">Game Refinement</span>
-        <span class="kw-pill kw-tag" data-field="ai">Machine Learning</span>
-        <button class="kw-pill kw-field" data-field="game" type="button" data-i18n="research.gamification">Gamification in Education</button>
-        <span class="kw-pill kw-tag" data-field="entertainment">Player Experience</span>
-        <span class="kw-pill kw-tag" data-field="ai">Personalization</span>
-        <span class="kw-pill kw-tag" data-field="edtech">Micro-learning</span>
-        <span class="kw-pill kw-tag" data-field="game">Engagement</span>
-        <button class="kw-pill kw-field" data-field="entertainment" type="button" data-i18n="research.entertainment">Entertainment Computing</button>
-        <span class="kw-pill kw-tag" data-field="ai">Adaptive Quiz</span>
-        <span class="kw-pill kw-tag" data-field="edtech">Human-AI Interaction</span>
-        <span class="kw-pill kw-tag" data-field="game">Kahoot</span>
-        <span class="kw-pill kw-tag" data-field="entertainment">Mathematical Models</span>
-        <button class="kw-pill kw-field kw-field--current" data-field="edtech" type="button" data-i18n="research.edtech">AI-powered Educational Technology</button>
-        <span class="kw-pill kw-tag" data-field="ai">Knowledge Recommender</span>
-        <span class="kw-pill kw-tag" data-field="edtech">Learning Science</span>
-        <span class="kw-pill kw-tag" data-field="entertainment">Game Informatics</span>
-        <span class="kw-pill kw-tag" data-field="ai">LLM</span>
-        <span class="kw-pill kw-tag" data-field="edtech">Adult Education</span>
-        <span class="kw-pill kw-tag" data-field="game">Game-Based Learning</span>
-        <span class="kw-pill kw-tag" data-field="edtech">Continuing Education</span>
-        <span class="kw-pill kw-tag" data-field="entertainment">Entertainment Value</span>
-        <span class="kw-pill kw-tag" data-field="edtech">Lifestyle Integration</span>
-
-      </div>
+      <div class="kw-cloud" id="kw-cloud" aria-label="Research topics"><button class="kw-pill kw-field" data-field="ai" type="button"><span data-i18n="research.ai-learning">AI-Driven Adaptive Learning</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+<button class="kw-pill kw-field" data-field="game" type="button"><span data-i18n="research.gamification">Gamification in Education</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+<button class="kw-pill kw-field" data-field="entertainment" type="button"><span data-i18n="research.entertainment">Entertainment Computing</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+<button class="kw-pill kw-field kw-field--current" data-field="edtech" type="button"><span data-i18n="research.edtech">AI-powered Educational Technology</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div>
 
       <!-- Description panel — right column on desktop -->
       <div class="kw-desc-panel" id="kw-desc-panel" aria-live="polite">
-        <p class="kw-panel-label">Research Focus</p>
+
         <p class="kw-desc-empty" data-i18n="research.empty">Pick a field to see what's brewing.</p>
-        <div class="kw-desc" data-field="ai">
-          <p>Developing adaptive quiz systems and personalised learning experiences that respond to individual learners in real time — combining machine learning with insights from educational psychology to improve outcomes at scale.</p>
-        </div>
-        <div class="kw-desc" data-field="game">
-          <p>Examining how challenge-based gamification mechanics can transform classroom quizzing into engaging, rewarding experiences. Published research demonstrates significant gains in student engagement and knowledge retention.</p>
-        </div>
-        <div class="kw-desc" data-field="entertainment">
-          <p>Applying game refinement theory and signal-processing models to measure and optimise the entertainment value of games — linking player experience to mathematical properties of game structure and design.</p>
-        </div>
-        <div class="kw-desc" data-field="edtech">
-          <p>Conducting and leading a strategic research-and-translation project — developing an AI-powered lifestyle-integrated micro-learning app for continuing education that meets adult learners in the flow of life and work.</p>
-        </div>
+        <div class="kw-desc" data-field="ai"><h3 data-i18n="research.ai-learning">AI-Driven Adaptive Learning</h3><p><span data-i18n="chapter.research.ai">Learning that adapts to each learner, with quizzes and personalised feedback.</span></p><details class="story-fold research-fold"><summary><span data-i18n="chapter.research.notes">Research notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content">
+          <p data-i18n="chapter.research.detail.0">Developing adaptive quiz systems and personalised learning experiences that respond to individual learners in real time — combining machine learning with insights from educational psychology to improve outcomes at scale.</p>
+        <div class="research-notes"><span class="kw-pill kw-tag" data-field="ai">Machine Learning</span><span class="kw-pill kw-tag" data-field="ai">Personalization</span><span class="kw-pill kw-tag" data-field="ai">Adaptive Quiz</span><span class="kw-pill kw-tag" data-field="ai">Knowledge Recommender</span><span class="kw-pill kw-tag" data-field="ai">LLM</span></div></div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        <div class="kw-desc" data-field="game"><h3 data-i18n="research.gamification">Gamification in Education</h3><p><span data-i18n="chapter.research.game">Using challenge and play to make classroom quizzes more engaging.</span></p><details class="story-fold research-fold"><summary><span data-i18n="chapter.research.notes">Research notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content">
+          <p data-i18n="chapter.research.detail.1">Examining how challenge-based gamification mechanics can transform classroom quizzing into engaging, rewarding experiences. Published research demonstrates significant gains in student engagement and knowledge retention.</p>
+        <div class="research-notes"><span class="kw-pill kw-tag" data-field="game">Challenge-Based</span><span class="kw-pill kw-tag" data-field="game">Engagement</span><span class="kw-pill kw-tag" data-field="game">Kahoot</span><span class="kw-pill kw-tag" data-field="game">Game-Based Learning</span></div></div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        <div class="kw-desc" data-field="entertainment"><h3 data-i18n="research.entertainment">Entertainment Computing</h3><p><span data-i18n="chapter.research.entertainment">Exploring what makes games enjoyable through game refinement theory.</span></p><details class="story-fold research-fold"><summary><span data-i18n="chapter.research.notes">Research notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content">
+          <p data-i18n="chapter.research.detail.2">Applying game refinement theory and signal-processing models to measure and optimise the entertainment value of games — linking player experience to mathematical properties of game structure and design.</p>
+        <div class="research-notes"><span class="kw-pill kw-tag" data-field="entertainment">Game Refinement</span><span class="kw-pill kw-tag" data-field="entertainment">Player Experience</span><span class="kw-pill kw-tag" data-field="entertainment">Mathematical Models</span><span class="kw-pill kw-tag" data-field="entertainment">Game Informatics</span><span class="kw-pill kw-tag" data-field="entertainment">Entertainment Value</span></div></div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        <div class="kw-desc" data-field="edtech"><h3 data-i18n="research.edtech">AI-powered Educational Technology</h3><p><span data-i18n="chapter.research.edtech">Bringing AI-powered micro-learning into everyday life and work.</span></p><details class="story-fold research-fold"><summary><span data-i18n="chapter.research.notes">Research notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content">
+          <p data-i18n="chapter.research.detail.3">Conducting and leading a strategic research-and-translation project — developing an AI-powered lifestyle-integrated micro-learning app for continuing education that meets adult learners in the flow of life and work.</p>
+        <div class="research-notes"><span class="kw-pill kw-tag" data-field="edtech">Micro-learning</span><span class="kw-pill kw-tag" data-field="edtech">Human-AI Interaction</span><span class="kw-pill kw-tag" data-field="edtech">Learning Science</span><span class="kw-pill kw-tag" data-field="edtech">Adult Education</span><span class="kw-pill kw-tag" data-field="edtech">Continuing Education</span><span class="kw-pill kw-tag" data-field="edtech">Lifestyle Integration</span></div></div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
       </div><!-- /kw-desc-panel -->
       </div><!-- /research-body -->
     </section>
 
     <!-- ─── 05 Publications ───────────────────────────────────────── -->
     <section class="section" id="publications" aria-label="Selected Publications">
-      <header class="section-head">
-        <span class="n">05</span>
-        <div class="rule"></div>
-        <h2 data-i18n="section.publications">Publications</h2>
-      </header>
+      <header class="chapter-head">
+ <div class="chapter-heading"><h2 data-i18n="section.publications">Publications</h2><p><span data-i18n="chapter.publications.intro">Ideas, brewed into papers.</span></p></div>
+ <div class="chapter-companion"><button class="chapter-bell" type="button" aria-label="Tap Bell for a thought" data-i18n-aria="chapter.tap" disabled><span class="chapter-portrait" aria-hidden="true"><img class="chapter-pose chapter-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448"><img class="chapter-pose chapter-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448"></span><span class="chapter-caption"><span data-i18n="chapter.tap.short">Tap Bell</span></span></button><p class="chapter-note" aria-live="polite" data-i18n="chapter.publications.note">Pick a paper for the finer details.</p></div>
+ </header>
 
       <div class="pub-list">
 
-        <article class="pub-item">
-          <span class="pub-year">2023</span>
-          <div class="pub-body">
-            <p class="pub-title">Objectivity and subjectivity in variation of multiple choice questions: Linking the theoretical concepts using motion in mind</p>
-            <p class="pub-meta"><span class="pub-authors">Khalid M.N.A., Iida H.</span><span class="pub-cite">9 cited</span></p>
-          </div>
-        </article>
+        <details class="story-fold paper-entry"><summary><span class="pub-year">2023</span><p class="pub-title">Objectivity and subjectivity in variation of multiple choice questions: Linking the theoretical concepts using motion in mind</p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="pub-meta"><span class="pub-authors">Khalid M.N.A., Iida H.</span><span class="pub-cite">9 cited</span></p></div></details>
 
-        <article class="pub-item">
-          <span class="pub-year">2021</span>
-          <div class="pub-body">
-            <p class="pub-title">Capturing potential impact of challenge-based gamification on gamified quizzing in the classroom</p>
-            <p class="pub-meta"><span class="pub-authors">Khalid M.N.A., Iida H., Inchamnan W.</span><span class="pub-cite">78 cited</span></p>
-          </div>
-        </article>
+        <details class="story-fold paper-entry"><summary><span class="pub-year">2021</span><p class="pub-title">Capturing potential impact of challenge-based gamification on gamified quizzing in the classroom</p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="pub-meta"><span class="pub-authors">Khalid M.N.A., Iida H., Inchamnan W.</span><span class="pub-cite">78 cited</span></p></div></details>
 
-        <article class="pub-item">
-          <span class="pub-year">2019</span>
-          <div class="pub-body">
-            <p class="pub-title">User-centered entertainment factors for platform transformation and game development</p>
-            <p class="pub-meta"><span class="pub-authors">Khalid M.N.A., Iida H.</span><span class="pub-cite">4 cited</span></p>
-          </div>
-        </article>
+        <details class="story-fold paper-entry"><summary><span class="pub-year">2019</span><p class="pub-title">User-centered entertainment factors for platform transformation and game development</p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="pub-meta"><span class="pub-authors">Khalid M.N.A., Iida H.</span><span class="pub-cite">4 cited</span></p></div></details>
 
-        <article class="pub-item">
-          <span class="pub-year">2018</span>
-          <div class="pub-body">
-            <p class="pub-title">Analysis of Realm of Valor and its business model on PC and mobile platform comparison</p>
-            <p class="pub-meta"><span class="pub-authors">Khalid M.N.A., Yusof U.K., Iida H.</span><span class="pub-cite">9 cited</span></p>
-          </div>
-        </article>
+        <details class="story-fold paper-entry"><summary><span class="pub-year">2018</span><p class="pub-title">Analysis of Realm of Valor and its business model on PC and mobile platform comparison</p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="pub-meta"><span class="pub-authors">Khalid M.N.A., Yusof U.K., Iida H.</span><span class="pub-cite">9 cited</span></p></div></details>
 
-        <article class="pub-item">
-          <span class="pub-year">2016</span>
-          <div class="pub-body">
-            <p class="pub-title">Finding comfortable settings of snake game using game refinement measurement</p>
-            <p class="pub-meta"><span class="pub-authors">Panumate C., Iida H.</span><span class="pub-cite">19 cited</span></p>
-          </div>
-        </article>
+        <details class="story-fold paper-entry"><summary><span class="pub-year">2016</span><p class="pub-title">Finding comfortable settings of snake game using game refinement measurement</p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="pub-meta"><span class="pub-authors">Panumate C., Iida H.</span><span class="pub-cite">19 cited</span></p></div></details>
 
       </div>
 
       <a class="pub-more" href="https://scholar.google.com/citations?user=J4xtAsQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
-        View all on Google Scholar ↗
+        <span data-i18n="chapter.scholar">View all on Google Scholar</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
       </a>
     </section>
 
@@ -565,119 +402,90 @@
 
     <!-- ─── 06 Personality ────────────────────────────────────────── -->
     <section class="section" id="personality" aria-label="Personality">
-      <header class="section-head">
-        <span class="n">06</span>
-        <div class="rule"></div>
-        <h2 data-i18n="section.personality">Personality</h2>
-      </header>
+      <header class="chapter-head">
+ <div class="chapter-heading"><h2 data-i18n="section.personality">Personality</h2><p><span data-i18n="chapter.personality.intro">A little of my personal blend.</span></p></div>
+ <div class="chapter-companion"><button class="chapter-bell" type="button" aria-label="Tap Bell for a thought" data-i18n-aria="chapter.tap" disabled><span class="chapter-portrait" aria-hidden="true"><img class="chapter-pose chapter-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448"><img class="chapter-pose chapter-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448"></span><span class="chapter-caption"><span data-i18n="chapter.tap.short">Tap Bell</span></span></button><p class="chapter-note" aria-live="polite" data-i18n="chapter.personality.note">Two ways to get to know me.</p></div>
+ </header>
 
       <div class="persona-grid">
 
-        <div class="persona-card">
-          <span class="persona-star" aria-hidden="true">★</span>
-          <div class="persona-card-tag">Enneagram</div>
-          <div class="persona-card-type">Type 3</div>
-          <div class="persona-card-label">The Achiever</div>
-          <p class="persona-card-desc">
+        <details class="story-fold personality-entry"><summary><span><div class="persona-card-tag">Enneagram</div><div class="persona-card-type">Type 3</div><div class="persona-card-label">The Achiever</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="persona-card-desc" data-i18n="chapter.personality.detail.0">
             Driven, ambitious, and deeply adaptable. Goal-oriented and invested in
             excellence and meaningful impact — motivated by achievement and the
             desire to inspire others through demonstrated success.
-          </p>
-        </div>
+          </p></div></details>
 
-        <div class="persona-card">
-          <span class="persona-star" aria-hidden="true">★</span>
-          <div class="persona-card-tag">MBTI</div>
-          <div class="persona-card-type">ENFJ&thinsp;/&thinsp;INFJ</div>
-          <div class="persona-card-label">The Protagonist &amp; The Advocate</div>
-          <p class="persona-card-desc">
+        <details class="story-fold personality-entry"><summary><span><div class="persona-card-tag">MBTI</div><div class="persona-card-type">ENFJ&thinsp;/&thinsp;INFJ</div><div class="persona-card-label">The Protagonist &amp; The Advocate</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><p class="persona-card-desc" data-i18n="chapter.personality.detail.1">
             Charismatic and empathetic leader with a rich inner world — equally
             driven by inspiring others and understanding the world on a deeper,
             principled level. A natural bridge between vision and people.
-          </p>
-        </div>
+          </p></div></details>
 
       </div>
     </section>
 
     <!-- ─── 07 Connect ───────────────────────────────────────────── -->
     <section class="section" id="connect" aria-label="Connect">
-      <header class="section-head">
-        <span class="n">07</span>
-        <div class="rule"></div>
-        <h2 data-i18n="section.connect">Connect</h2>
-      </header>
+      <header class="chapter-head">
+ <div class="chapter-heading"><h2 data-i18n="section.connect">Connect</h2><p><span data-i18n="chapter.connect.intro">Good conversations start here.</span></p></div>
+ <div class="chapter-companion"><button class="chapter-bell" type="button" aria-label="Tap Bell for a thought" data-i18n-aria="chapter.tap" disabled><span class="chapter-portrait" aria-hidden="true"><img class="chapter-pose chapter-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448"><img class="chapter-pose chapter-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448"></span><span class="chapter-caption"><span data-i18n="chapter.tap.short">Tap Bell</span></span></button><p class="chapter-note" aria-live="polite" data-i18n="chapter.connect.note">Research question or coffee chat?</p></div>
+ </header>
 
-      <nav class="links-nav" aria-label="Contact and profile links">
-
-        <a class="link-row" href="mailto:punyawee@ahlab.org" aria-label="Email: punyawee@ahlab.org">
+      <div class="connect-story chapter-body"><nav class="links-nav connect-primary" aria-label="Contact"><a class="link-row" href="mailto:punyawee@ahlab.org" aria-label="Email: punyawee@ahlab.org">
           <div class="link-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </div>
           <span class="link-name" data-i18n="link.email">Email</span>
           <span class="link-desc">punyawee@ahlab.org</span>
           <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a class="link-row" href="#" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae PDF">
-          <div class="link-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-          </div>
-          <span class="link-name" data-i18n="link.cv">Curriculum Vitae</span>
-          <span class="link-desc" data-i18n="link.cv.desc">The full menu (PDF)</span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a class="link-row" href="https://linkedin.com/in/bell-punyawee" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+        </a><a class="link-row" href="https://linkedin.com/in/bell-punyawee" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
           <div class="link-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
           <span class="link-name" data-i18n="link.linkedin">LinkedIn</span>
           <span class="link-desc">linkedin.com/in/bell-punyawee</span>
           <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a class="link-row" href="https://github.com/bellpunyawee" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+        </a><a class="link-row" href="mailto:punyawee@ahlab.org?subject=CV%20request" aria-label="Request CV by email" data-i18n-aria="cafe.cv">
+          <div class="link-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+          </div>
+          <span class="link-name" data-i18n="link.cv">Curriculum Vitae</span>
+          <span class="link-desc" data-i18n="link.cv.desc">Request the full CV by email</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a></nav><div class="copy-email-row"><button type="button" class="copy-email story-link" hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-i18n="chapter.copy">Copy email address</span></button><span class="copy-status" role="status"></span></div><details class="story-fold" ><summary><span data-i18n="chapter.profiles">More places to find me</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><nav class="links-nav" aria-label="More profiles"><a class="link-row" href="https://github.com/bellpunyawee" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
           <div class="link-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
           </div>
           <span class="link-name" data-i18n="link.github">GitHub</span>
           <span class="link-desc">github.com/bellpunyawee</span>
           <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a class="link-row" href="https://scholar.google.com/citations?user=J4xtAsQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
+        </a><a class="link-row" href="https://scholar.google.com/citations?user=J4xtAsQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
           <div class="link-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
           <span class="link-name" data-i18n="link.scholar">Google Scholar</span>
           <span class="link-desc">141 citations · h-index 6</span>
           <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a class="link-row" href="https://www.researchgate.net/profile/Punyawee-Anunpattana-2" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate profile">
+        </a><a class="link-row" href="https://www.researchgate.net/profile/Punyawee-Anunpattana-2" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate profile">
           <div class="link-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9C11.18 3.68 5.85 1.66 3.82 3.68c-2.04 2.04-.02 7.37 4.5 11.91s9.72 6.52 11.88 4.63z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.91-2.03-2.02-7.36-.02-11.88 4.5-4.54 4.54-6.54 9.87-4.52 11.91 2.04 2.04 7.37.02 11.9-4.5z"/></svg>
           </div>
           <span class="link-name" data-i18n="link.researchgate">ResearchGate</span>
           <span class="link-desc">researchgate.net</span>
           <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a class="link-row" href="https://ahlab.org/people/punyawee-anunpattana/" target="_blank" rel="noopener noreferrer" aria-label="AHLab profile page">
+        </a><a class="link-row" href="https://ahlab.org/people/punyawee-anunpattana/" target="_blank" rel="noopener noreferrer" aria-label="AHLab profile page">
           <div class="link-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <span class="link-name" data-i18n="link.ahlab">AHLab Profile</span>
           <span class="link-desc">ahlab.org</span>
           <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-
-      </nav>
+        </a></nav></div></details></div>
     </section>
 
     </div><!-- /.section-pair -->
 
+    </div><!-- /.story-reader -->
   </main>
 
   <footer>

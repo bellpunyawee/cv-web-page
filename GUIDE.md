@@ -82,19 +82,24 @@ Find the `#about` and `#research` sections in `index.html`. The text is inside `
 
 ### Change the accent color
 
-The accent color is terracotta by default. To change it:
+The accent is Starbucks "Green Accent" by default. To change it:
 
 **Step 1** — Open `style.css` and find this line in the `:root` block:
 ```css
---accent: oklch(52% 0.130 30);
+--accent:       #00754A;
 ```
-Change the value. Try `oklch(52% 0.12 200)` for teal, or `oklch(45% 0.15 280)` for purple.
+Change the value.
 
 **Step 2** — Open `script.js` and find this line (near the top of `initPolyhedron`):
 ```js
-const ACCENT = '182, 79, 34';
+const ACCENT = '0, 117, 74';
 ```
-Update the RGB values to match your new color. (Use a color picker tool online to find the RGB for your oklch value.)
+Update the RGB values to match your new color — this is what the hero icosahedron
+is drawn in, and it is the only colour not read from the CSS tokens.
+
+> Note: `--accent` is one of four role-mapped greens. Changing it alone shifts the
+> interactive colour but leaves headings (`--primary`) and the footer band
+> (`--house`) untouched. See `DESIGN-starbucks.md` before recolouring the system.
 
 ---
 
@@ -190,3 +195,61 @@ Open Claude Code (this app) and describe what you want. For example:
 - `"Add a fourth research area about origami mathematics"`
 
 Claude has full context in `CLAUDE.md` and will make targeted edits without changing the design.
+
+## Coffee-table homepage
+
+The short homepage introduces Bell with an interactive chibi illustration and a
+real portrait in the About preview. Its four story links open research, publications,
+education, and about; the primary action opens research. The topic navigation
+provides access to all seven original CV sections, one at a time. `#home` returns
+to the introduction, and existing section URLs such as `#publications` still work.
+
+- Homepage copy: `.cafe-home` in `index.html`; `cafe.*` keys in both language dictionaries in `script.js`.
+- Character poses: the original `bell-chibi.png` and `bell-chibi-coffee.png`; feeding coffee switches poses and updates a short reaction.
+- Professional portrait: `photo.jpg`, shown on the homepage and in About.
+- Navigation: `initCoffeeStories()`; browser Back/Forward and keyboard focus are supported.
+- No JavaScript: the complete CV remains visible. Printing includes all sections.
+- The CV link requests a copy by email until a real PDF URL is supplied.
+
+The palette, type, spacing tokens, and green roles still follow `DESIGN-starbucks.md`.
+
+The homepage uses an editorial poster layout: a large central illustration and
+headline, supporting text at the edges, then a 2×2 grid mixing image and type.
+The English motto runs vertically; Thai stays horizontal. On mobile, the reading
+order reflows naturally and the live character note gets its own full-width row.
+
+### Exploring the inner chapters
+
+Each topic has a short illustrated introduction. Tap its Bell illustration for a
+second note; choosing a degree, research topic, or opening a detail also prompts a
+brief reaction. The homepage and the About chapter both keep the real portrait.
+
+- About separates lab life and after-hours stories into native disclosures.
+- Education keeps degree selection; the thesis opens separately under the PhD.
+- Experience opens one role at a time. Publication titles remain visible, with metadata underneath each title.
+- Research starts with four choices and a brief description; research notes and related keywords open on demand.
+- Personality expands each profile independently. Connect prioritises email, LinkedIn, and CV, with other profiles underneath.
+- On small screens, the chapter selector replaces the full navigation row. Browser history and direct section links still work.
+- New chapter text lives in the `chapter.*` English/Thai dictionaries. Native disclosures work without JavaScript; print temporarily opens all details and restores their state afterward.
+- Copy email provides feedback, including the address to copy manually if clipboard access is unavailable.
+
+Character reactions and disclosure transitions respect reduced-motion preferences.
+
+### Feed Bell a cold brew
+
+On the homepage, tap Bell or “Feed me cold brew” to serve one cup. The counter
+belongs to the visitor's browser and persists under `bell-cold-brews` in localStorage;
+it is not a shared visitor total. If storage is unavailable, it counts for the current
+visit. Short reactions celebrate 5, 10, and 25 cups. Text lives in the bilingual
+`feed.*` translations. Delivery and +1 animations only run on interaction and respect
+reduced-motion preferences; keyboard Enter and Space work with the native button.
+
+### Quiet editorial typography
+
+Typography takes its Japanese minimalism from restrained weight, clear hierarchy,
+and space. The original system font stack stays local; no web fonts are downloaded.
+`style.css` defines semantic `--type-*` sizes and three `--weight-*` roles: 400 for
+display headings and prose, 500 for titles and controls, 600 for emphasis.
+Body copy stays at 1rem on mobile and desktop; secondary text uses .875rem and
+captions .75rem. Thai overrides the heading tracking and line heights to preserve
+natural spacing and room for vowel marks. Existing layout spacing tokens stay intact.
