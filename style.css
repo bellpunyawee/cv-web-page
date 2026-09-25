@@ -66,6 +66,7 @@
   --type-small: .875rem;
   --type-body: 1rem;
   --type-title: 1.25rem;
+  --type-identity: clamp(1.5rem, 1.125rem + 1vw, 2rem);
   --type-heading: clamp(2rem, 1.5rem + 1vw, 2.5rem);
   --type-display: clamp(2rem, 1.5rem + 2vw, 3.25rem);
   --weight-regular: 400;
@@ -1951,11 +1952,13 @@ body:has(.poster-home):not(.reading-story) { background: var(--bg-tinted); }
   box-shadow: var(--shadow-lift);
 }
 .poster-home #cafe-heading { grid-column: 2; grid-row: 2; color: var(--primary); text-align: center; font-size: var(--type-display); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); font-weight: var(--weight-regular);  text-wrap: balance; }
-.poster-home .cafe-intro { grid-column: 1; grid-row: 1 / span 2; align-self: end; padding: 0; }
+.poster-home .cafe-intro { grid-column: 1; grid-row: 1 / span 2; align-self: center; min-width: 0; padding: 0; }
 .poster-home .cafe-identity { margin-top: 0; }
-.poster-home .cafe-name { font-size: var(--type-body); }
-.poster-home .cafe-role { max-width: 28ch; font-size: var(--type-small); line-height: 1.6; margin-top: var(--sp-2xs); }
-.poster-home .cafe-lede { font-size: var(--type-body); max-width: 28ch; margin-top: var(--sp-m);  line-height: var(--leading-body);  text-wrap: pretty; }
+.cafe-credentials { display: block; min-width: 0; }
+.poster-home .cafe-name { max-width: 14ch; font-size: var(--type-identity); font-weight: var(--weight-medium); color: var(--primary); line-height: 1.2; letter-spacing: -.025em; text-wrap: balance; overflow-wrap: anywhere; }
+.poster-home .cafe-role { font-size: var(--type-body); font-weight: var(--weight-medium); color: var(--primary); line-height: var(--leading-body); margin-top: var(--sp-s); }
+.cafe-affiliation { display: block; color: var(--text-2); font-size: var(--type-small); line-height: var(--leading-body); text-wrap: pretty; }
+.poster-home .cafe-lede { font-size: var(--type-body); max-width: 28ch; margin-top: var(--sp-s); padding-top: var(--sp-s); border-top: 1px solid var(--border-bold); line-height: var(--leading-body); text-wrap: pretty; }
 .poster-home .cafe-primary { padding-inline: var(--sp-s); font-size: var(--type-small); gap: var(--sp-xs); margin-top: var(--sp-s);  font-weight: var(--weight-medium); }
 .poster-home .bell-scene { grid-column: 2; grid-row: 1; padding: 0; gap: 0; background: none; }
 .poster-home .bell-character { gap: 0; color: var(--primary); }
@@ -1995,7 +1998,7 @@ body:has(.poster-home):not(.reading-story) { background: var(--bg-tinted); }
 }
 .story-poster:active { transform: scale(.95); }
 @media (max-width: 1000px) and (min-width: 601px) {
-  .poster-home .cafe-hero { grid-template-columns: minmax(150px, 1fr) minmax(190px, 1.4fr) minmax(75px, .55fr); gap: var(--sp-s); padding: var(--sp-s); }
+  .poster-home .cafe-hero { grid-template-columns: minmax(180px, 1.15fr) minmax(190px, 1.4fr) minmax(75px, .55fr); gap: var(--sp-s); padding: var(--sp-s); }
   .poster-home .bell-portrait { width: 220px; height: 230px; }
   .poster-home .cafe-lede { font-size: var(--type-body);  line-height: var(--leading-body);  text-wrap: pretty; }
   .poster-motto { font-size: var(--type-small);  font-weight: var(--weight-medium);  letter-spacing: .08em; }
@@ -2015,8 +2018,8 @@ body:has(.poster-home):not(.reading-story) { background: var(--bg-tinted); }
   .poster-home .bell-note { grid-column: 1 / -1; grid-row: 3; font-size: var(--type-small); min-height: 3em; text-align: left; max-width: none;  line-height: var(--leading-body); }
   .poster-home .cafe-intro { grid-column: 1 / -1; grid-row: 4; display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: var(--sp-xs); row-gap: var(--sp-xs); margin-top: var(--sp-xs); }
   .poster-home .cafe-identity { grid-column: 1 / -1; }
-  .poster-home .cafe-name { font-size: var(--type-body); }
-  .poster-home .cafe-role { font-size: var(--type-small); max-width: none; }
+  .poster-home .cafe-name { font-size: var(--type-identity); }
+  .poster-home .cafe-role { font-size: var(--type-body); max-width: none; margin-top: var(--sp-xs); }
   .poster-home .cafe-lede { grid-column: 1 / -1; margin: 0; max-width: 45ch; font-size: var(--type-body);  line-height: var(--leading-body);  text-wrap: pretty; }
   .poster-home .cafe-primary { grid-column: 1 / -1; justify-self: start; min-height: 44px; margin: 0;  font-size: var(--type-small);  font-weight: var(--weight-medium); }
   .poster-home .poster-grid { gap: var(--sp-xs); }
