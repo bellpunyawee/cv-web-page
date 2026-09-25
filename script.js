@@ -289,7 +289,7 @@ const TRANSLATIONS = {
     "cafe.headline": "Always brewing something.",
     "cafe.name": "Dr. Punyawee Anunpattana",
     "cafe.role": "Research Fellow",
-    "cafe.affiliation": "AHLab · NUS, Singapore",
+    "cafe.affiliation": "CHILL · AHLab · NUS, Singapore",
     "cafe.lede": "A curious mind exploring how we learn, through AI, play, and a good cup of coffee.",
     "cafe.explore": "Explore my research",
     "cafe.tap": "Coffee break? Tap Bell.",
