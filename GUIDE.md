@@ -261,7 +261,13 @@ the latest destination. Without Web Animations support, navigation remains insta
 ### Quiet editorial typography
 
 Typography takes its Japanese minimalism from restrained weight, clear hierarchy,
-and space. The original system font stack stays local; no web fonts are downloaded.
+and space. English keeps the original system font stack. Thai uses a self-hosted,
+modern loopless Noto Sans Thai face, with the original stack for Latin characters.
+This requested Thai-specific choice extends the original system-font-only guide.
+The variable WOFF2 contains only the Thai subset (about 27 KB), loads only when
+needed, and uses `font-display: swap` so text stays visible while it loads.
+The font and its SIL Open Font License are in `fonts/`; the upstream project is
+https://github.com/notofonts/thai. No external font service is contacted at runtime.
 `style.css` defines semantic `--type-*` sizes and three `--weight-*` roles: 400 for
 display headings and prose, 500 for titles and controls, 600 for emphasis.
 Body copy stays at 1rem on mobile and desktop; secondary text uses .875rem and
