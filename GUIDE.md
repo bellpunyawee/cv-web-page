@@ -215,8 +215,9 @@ The palette, type, spacing tokens, and green roles still follow `DESIGN-starbuck
 
 The homepage uses an editorial poster layout: a large central illustration and
 headline, supporting text at the edges, then a 2×2 grid mixing image and type.
-The English motto runs vertically; Thai stays horizontal. On mobile, the reading
-order reflows naturally and the live character note gets its own full-width row.
+The English motto runs vertically; Thai stays horizontal. The live character reply
+sits directly below the Feed button. A compact thesis bookshelf sits beside the
+four story links on desktop and above them on mobile.
 
 ### Exploring the inner chapters
 
@@ -225,9 +226,9 @@ second note; choosing a degree, research topic, or opening a detail also prompts
 brief reaction. The homepage and the About chapter both keep the real portrait.
 
 - About separates lab life and after-hours stories into native disclosures.
-- Education keeps degree selection; the thesis opens separately under the PhD.
+- Education keeps degree selection and the full thesis abstract under the PhD. The original front/back cover artwork now appears on the landing page with a short introduction, a flip control, a full-size image link, and the PDF link. The mathematical cover SVG is preserved as its fallback.
 - Experience opens one role at a time. Publication titles remain visible, with metadata underneath each title.
-- Research starts with four choices and a brief description; research notes and related keywords open on demand.
+- Research restores the original cloud of four fields and twenty related keywords. Selecting a field highlights matching keywords and opens its description. Select it again or use “Show all connections” to reset; research notes still open on demand.
 - Personality expands each profile independently. Connect prioritises email, LinkedIn, and CV, with other profiles underneath.
 - On small screens, the chapter selector replaces the full navigation row. Browser history and direct section links still work.
 - New chapter text lives in the `chapter.*` English/Thai dictionaries. Native disclosures work without JavaScript; print temporarily opens all details and restores their state afterward.
@@ -243,6 +244,16 @@ it is not a shared visitor total. If storage is unavailable, it counts for the c
 visit. Short reactions celebrate 5, 10, and 25 cups. Text lives in the bilingual
 `feed.*` translations. Delivery and +1 animations only run on interaction and respect
 reduced-motion preferences; keyboard Enter and Space work with the native button.
+
+The reply now has a mint background beside the interaction, and each feed animates
+the reply and count. At 5, 10, and 25 cups, eight small SVG coffee beans scatter once.
+Two decorative beans drift gently near Bell. Use the pause control in the header to
+stop motion; that choice persists as `coffee-motion`. Ambient motion pauses in other
+chapters and background tabs, and system reduced-motion takes priority.
+
+Chapter navigation uses an interruptible 320ms fade and slide. The content, URL,
+and keyboard focus update immediately; rapid navigation and browser history retain
+the latest destination. Without Web Animations support, navigation remains instant.
 
 ### Quiet editorial typography
 

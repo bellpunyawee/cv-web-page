@@ -20,7 +20,7 @@
           <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
         </button>
-        <button class="lang-toggle" aria-label="Switch language" data-i18n-aria="cafe.language">TH</button>
+        <button class="motion-toggle" type="button" aria-label="Pause animations" data-i18n-aria="motion.pause" hidden><svg class="motion-pause" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><svg class="motion-play" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg></button><button class="lang-toggle" aria-label="Switch language" data-i18n-aria="cafe.language">TH</button>
       </div>
     </div>
   </header>
@@ -39,21 +39,107 @@
           <p class="cafe-lede" data-i18n="cafe.lede">A curious mind exploring how we learn, through AI, play, and a good cup of coffee.</p>
           <a class="cafe-primary" href="#research" data-story-link><span data-i18n="cafe.explore">Explore my research</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
         </div>
-        <div class="bell-scene">
+        <div class="bell-scene"><span class="coffee-drift coffee-drift--one" aria-hidden="true"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span><span class="coffee-drift coffee-drift--two" aria-hidden="true"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span>
 
           <button class="bell-character" type="button" aria-label="Feed me cold brew" data-i18n-aria="feed.button" aria-describedby="bell-note brew-count" disabled>
             <span class="bell-portrait" aria-hidden="true">
               <img class="bell-pose bell-pose--hello" src="bell-chibi.png" alt="" width="1086" height="1448" fetchpriority="high">
               <img class="bell-pose bell-pose--coffee" src="bell-chibi-coffee.png" alt="" width="1086" height="1448" decoding="async">
               <span class="brew-delivery"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h4l2 7M5 7h14M6 7l2 14h8l2-14M7 12h10M10 15l1 2m3-3 1 2"/></svg></span>
-              <span class="brew-plus">+1</span>
+              <span class="brew-plus">+1</span><span class="brew-celebration" aria-hidden="true"><span class="brew-bean"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span><span class="brew-bean"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span><span class="brew-bean"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span><span class="brew-bean"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span><span class="brew-bean"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span><span class="brew-bean"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span><span class="brew-bean"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span><span class="brew-bean"><svg width="24" height="32" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="16" rx="8" ry="12" transform="rotate(25 12 16)"/><path d="M16 5c-8 5 1 15-8 22"/></svg></span></span>
             </span>
             <span class="bell-invitation"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h4l2 7M5 7h14M6 7l2 14h8l2-14M7 12h10M10 15l1 2m3-3 1 2"/></svg><span data-i18n="feed.button">Feed me cold brew</span></span>
           </button>
-          <p class="brew-tally" id="brew-count" aria-live="polite" aria-atomic="true" hidden><span class="brew-total">0</span> <span data-i18n="feed.cups">cups served</span><span class="brew-scope" data-i18n="feed.browser">by you, in this browser</span></p>
+          <div class="brew-feedback" role="status" aria-live="polite" aria-atomic="true"><p class="bell-note"><span id="bell-note" data-i18n="feed.note.0">Please feed me. Great ideas run on cold brew.</span></p><p class="brew-tally" id="brew-count" hidden><span class="brew-total">0</span> <span data-i18n="feed.cups">cups served</span><span class="brew-scope" data-i18n="feed.browser">by you, in this browser</span></p></div>
         </div>
-        <div class="poster-margin"><p class="poster-motto" data-i18n="cafe.headline">Always brewing something.</p><p class="bell-note"><span id="bell-note" data-i18n="feed.note.0">Please feed me. Great ideas run on cold brew.</span></p></div>
+        <div class="poster-margin"><p class="poster-motto" data-i18n="cafe.headline">Always brewing something.</p></div>
       </section>
+      <div class="home-discoveries"><section class="landing-thesis" aria-labelledby="thesis-heading"><div class="thesis-book-shadow">
+        <div class="thesis-book">
+
+          <!-- Book spine -->
+          <div class="thesis-spine" aria-hidden="true">
+            <span class="thesis-spine-text">Punyawee Anunpattana · JAIST · 2023</span>
+          </div>
+
+          <!-- Book cover — 3D flip: front = ver1.png, back = ver1b.png -->
+          <div class="thesis-cover">
+            <button class="thesis-cover-flipper" id="landing-cover" type="button" aria-label="Flip the thesis cover" data-i18n-aria="shelf.flip" aria-pressed="false" disabled>
+              <img class="thesis-cover-front" src="ver1.png" alt="" width="1408" height="2000" loading="lazy"
+                   onerror="this.closest('.thesis-cover-flipper').classList.add('no-image')">
+              <img class="thesis-cover-back" src="ver1b.png" alt="" width="1408" height="2000" loading="lazy">
+            </button>
+            <!-- Static icosahedron SVG — same geometry as the canvas (TILT=0.38) -->
+            <svg class="thesis-cover-geo" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+              <!-- 30 edges of the icosahedron projected at TILT=0.38, angle=0 -->
+              <line x1="100" y1="86" x2="100" y2="164"/>
+              <line x1="100" y1="86" x2="142" y2="37"/>
+              <line x1="100" y1="86" x2="58" y2="37"/>
+              <line x1="100" y1="86" x2="168" y2="116"/>
+              <line x1="100" y1="86" x2="32" y2="116"/>
+              <line x1="100" y1="164" x2="142" y2="163"/>
+              <line x1="100" y1="164" x2="58" y2="163"/>
+              <line x1="100" y1="164" x2="168" y2="116"/>
+              <line x1="100" y1="164" x2="32" y2="116"/>
+              <line x1="100" y1="36" x2="100" y2="114"/>
+              <line x1="100" y1="36" x2="142" y2="37"/>
+              <line x1="100" y1="36" x2="58" y2="37"/>
+              <line x1="100" y1="36" x2="168" y2="84"/>
+              <line x1="100" y1="36" x2="32" y2="84"/>
+              <line x1="100" y1="114" x2="142" y2="163"/>
+              <line x1="100" y1="114" x2="58" y2="163"/>
+              <line x1="100" y1="114" x2="168" y2="84"/>
+              <line x1="100" y1="114" x2="32" y2="84"/>
+              <line x1="142" y1="37" x2="58" y2="37"/>
+              <line x1="142" y1="37" x2="168" y2="116"/>
+              <line x1="142" y1="37" x2="168" y2="84"/>
+              <line x1="58" y1="37" x2="32" y2="116"/>
+              <line x1="58" y1="37" x2="32" y2="84"/>
+              <line x1="142" y1="163" x2="58" y2="163"/>
+              <line x1="142" y1="163" x2="168" y2="116"/>
+              <line x1="142" y1="163" x2="168" y2="84"/>
+              <line x1="58" y1="163" x2="32" y2="116"/>
+              <line x1="58" y1="163" x2="32" y2="84"/>
+              <line x1="168" y1="116" x2="168" y2="84"/>
+              <line x1="32" y1="116" x2="32" y2="84"/>
+              <!-- 12 vertex dots -->
+              <circle cx="100" cy="86" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="100" cy="164" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="100" cy="36" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="100" cy="114" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="142" cy="37" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="58" cy="37" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="142" cy="163" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="58" cy="163" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="168" cy="116" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="32" cy="116" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="168" cy="84" r="2.2" fill="currentColor" stroke="none"/>
+              <circle cx="32" cy="84" r="2.2" fill="currentColor" stroke="none"/>
+            </svg>
+            <div class="thesis-cover-top">
+              <p class="thesis-cover-tag">Ph.D. Dissertation</p>
+              <p class="thesis-cover-school">JAIST · School of Information Science</p>
+            </div>
+            <p class="thesis-cover-title">
+              Analyzing Learning Process on Educational Assessment and Its Theoretical Concepts Using Motion in Mind
+            </p>
+            <div class="thesis-cover-bottom">
+              <p class="thesis-cover-author">Punyawee Anunpattana</p>
+              <p class="thesis-cover-date">March 2023</p>
+            </div>
+          </div>
+
+          <!-- Book info page -->
+          <div class="thesis-info">
+            <p class="shelf-kicker" data-i18n="shelf.kicker">From my bookshelf</p>
+            <h2 id="thesis-heading" data-i18n="shelf.title">Motion in Mind</h2>
+            <p class="shelf-brief" data-i18n="shelf.brief">How challenge and question design shape learning. My doctoral research at JAIST.</p>
+            <div class="shelf-controls"><button class="thesis-flip-control" type="button" aria-controls="landing-cover" aria-pressed="false" disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6 7a7 7 0 0 1 12-2l2 2M4 17l2 2a7 7 0 0 0 12-2"/></svg><span data-i18n="shelf.flip">Flip the cover</span></button><span class="thesis-face-label" data-i18n="shelf.front" aria-live="polite">Front cover</span></div>
+            <div class="shelf-links"><a class="thesis-link" href="https://dspace.jaist.ac.jp/dspace/bitstream/10119/18418/2/paper.pdf" target="_blank" rel="noopener noreferrer" data-i18n="shelf.read">Read thesis ↗</a><a class="thesis-image-link" href="ver1.png" target="_blank" rel="noopener noreferrer" data-i18n="shelf.enlarge">View cover full size ↗</a></div>
+          </div>
+
+        </div>
+        </div></section>
       <nav class="coffee-menu poster-grid" aria-label="Explore Bell's story" data-i18n-aria="cafe.menu">
         <a class="story-poster story-poster--research" href="#research" data-story-link>
           <span class="poster-copy"><strong><span data-i18n="poster.research">A curious mind.</span></strong><span><span data-i18n="poster.research.desc">AI, learning & play</span></span></span>
@@ -70,7 +156,7 @@
           <img class="poster-photo" src="photo.jpg" alt="Punyawee Anunpattana" width="400" height="400">
           <span class="poster-copy"><strong><span data-i18n="poster.about">The real Bell.</span></strong><span data-i18n="cafe.beyond.desc">The person behind the papers</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
         </a>
-      </nav>
+      </nav></div>
     </div>
     <div class="story-reader">
       <div class="reader-navigation" hidden>
@@ -167,85 +253,7 @@
         </div>
 
         <!-- ─── PhD Thesis Feature ──────────────────────────────── -->
-        <details class="story-fold" data-degree="phd"><summary><span data-i18n="chapter.thesis">Open my doctoral thesis</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><div class="thesis-book-shadow">
-        <div class="thesis-book">
-
-          <!-- Book spine -->
-          <div class="thesis-spine" aria-hidden="true">
-            <span class="thesis-spine-text">Punyawee Anunpattana · JAIST · 2023</span>
-          </div>
-
-          <!-- Book cover — 3D flip: front = ver1.png, back = ver1b.png -->
-          <div class="thesis-cover">
-            <div class="thesis-cover-flipper" role="button" tabindex="0"
-                 aria-label="Click to flip and see research diagram"
-                 aria-pressed="false">
-              <img class="thesis-cover-front" src="ver1.png" alt="Dissertation cover art"
-                   onerror="this.closest('.thesis-cover-flipper').classList.add('no-image')">
-              <img class="thesis-cover-back" src="ver1b.png" alt="Research framework diagram">
-            </div>
-            <!-- Static icosahedron SVG — same geometry as the canvas (TILT=0.38) -->
-            <svg class="thesis-cover-geo" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
-              <!-- 30 edges of the icosahedron projected at TILT=0.38, angle=0 -->
-              <line x1="100" y1="86" x2="100" y2="164"/>
-              <line x1="100" y1="86" x2="142" y2="37"/>
-              <line x1="100" y1="86" x2="58" y2="37"/>
-              <line x1="100" y1="86" x2="168" y2="116"/>
-              <line x1="100" y1="86" x2="32" y2="116"/>
-              <line x1="100" y1="164" x2="142" y2="163"/>
-              <line x1="100" y1="164" x2="58" y2="163"/>
-              <line x1="100" y1="164" x2="168" y2="116"/>
-              <line x1="100" y1="164" x2="32" y2="116"/>
-              <line x1="100" y1="36" x2="100" y2="114"/>
-              <line x1="100" y1="36" x2="142" y2="37"/>
-              <line x1="100" y1="36" x2="58" y2="37"/>
-              <line x1="100" y1="36" x2="168" y2="84"/>
-              <line x1="100" y1="36" x2="32" y2="84"/>
-              <line x1="100" y1="114" x2="142" y2="163"/>
-              <line x1="100" y1="114" x2="58" y2="163"/>
-              <line x1="100" y1="114" x2="168" y2="84"/>
-              <line x1="100" y1="114" x2="32" y2="84"/>
-              <line x1="142" y1="37" x2="58" y2="37"/>
-              <line x1="142" y1="37" x2="168" y2="116"/>
-              <line x1="142" y1="37" x2="168" y2="84"/>
-              <line x1="58" y1="37" x2="32" y2="116"/>
-              <line x1="58" y1="37" x2="32" y2="84"/>
-              <line x1="142" y1="163" x2="58" y2="163"/>
-              <line x1="142" y1="163" x2="168" y2="116"/>
-              <line x1="142" y1="163" x2="168" y2="84"/>
-              <line x1="58" y1="163" x2="32" y2="116"/>
-              <line x1="58" y1="163" x2="32" y2="84"/>
-              <line x1="168" y1="116" x2="168" y2="84"/>
-              <line x1="32" y1="116" x2="32" y2="84"/>
-              <!-- 12 vertex dots -->
-              <circle cx="100" cy="86" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="100" cy="164" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="100" cy="36" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="100" cy="114" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="142" cy="37" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="58" cy="37" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="142" cy="163" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="58" cy="163" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="168" cy="116" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="32" cy="116" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="168" cy="84" r="2.2" fill="currentColor" stroke="none"/>
-              <circle cx="32" cy="84" r="2.2" fill="currentColor" stroke="none"/>
-            </svg>
-            <div class="thesis-cover-top">
-              <p class="thesis-cover-tag">Ph.D. Dissertation</p>
-              <p class="thesis-cover-school">JAIST · School of Information Science</p>
-            </div>
-            <p class="thesis-cover-title">
-              Analyzing Learning Process on Educational Assessment and Its Theoretical Concepts Using Motion in Mind
-            </p>
-            <div class="thesis-cover-bottom">
-              <p class="thesis-cover-author">Punyawee Anunpattana</p>
-              <p class="thesis-cover-date">March 2023</p>
-            </div>
-          </div>
-
-          <!-- Book info page -->
-          <div class="thesis-info">
+        <details class="story-fold" data-degree="phd"><summary><span data-i18n="chapter.thesis">Open my doctoral thesis</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content"><div class="thesis-info">
             <p class="thesis-info-label">Abstract</p>
             <p class="thesis-abstract">
               Proposes <em>Motion in Mind</em> — a framework connecting challenge-based gamification
@@ -272,10 +280,7 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
               Read Full Dissertation ↗
             </a>
-          </div>
-
-        </div>
-        </div></div></details><!-- /thesis-book-shadow -->
+          </div></div></details>
 
         <div class="edu-item" data-degree="ms">
           <div class="edu-icon" aria-hidden="true">
@@ -346,10 +351,34 @@
 
       <!-- ─── Split: keyword cloud (left) + description (right) ──── -->
       <div class="research-body">
-      <div class="kw-cloud" id="kw-cloud" aria-label="Research topics"><button class="kw-pill kw-field" data-field="ai" type="button"><span data-i18n="research.ai-learning">AI-Driven Adaptive Learning</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
-<button class="kw-pill kw-field" data-field="game" type="button"><span data-i18n="research.gamification">Gamification in Education</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
-<button class="kw-pill kw-field" data-field="entertainment" type="button"><span data-i18n="research.entertainment">Entertainment Computing</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
-<button class="kw-pill kw-field kw-field--current" data-field="edtech" type="button"><span data-i18n="research.edtech">AI-powered Educational Technology</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div>
+      <div class="research-map"><p class="cloud-hint" data-i18n="cloud.hint">Choose a field. Follow the connected ideas.</p><div class="kw-cloud" id="kw-cloud" aria-label="Research areas — choose a field to explore" data-i18n-aria="cloud.label">
+
+        <button class="kw-pill kw-field" data-field="ai" type="button" data-i18n="research.ai-learning">AI-Driven Adaptive Learning</button>
+        <span class="kw-pill kw-tag" data-field="game" data-i18n="cloud.tag.0">Challenge-Based</span>
+        <span class="kw-pill kw-tag" data-field="entertainment" data-i18n="cloud.tag.1">Game Refinement</span>
+        <span class="kw-pill kw-tag" data-field="ai" data-i18n="cloud.tag.2">Machine Learning</span>
+        <button class="kw-pill kw-field" data-field="game" type="button" data-i18n="research.gamification">Gamification in Education</button>
+        <span class="kw-pill kw-tag" data-field="entertainment" data-i18n="cloud.tag.3">Player Experience</span>
+        <span class="kw-pill kw-tag" data-field="ai" data-i18n="cloud.tag.4">Personalization</span>
+        <span class="kw-pill kw-tag" data-field="edtech" data-i18n="cloud.tag.5">Micro-learning</span>
+        <span class="kw-pill kw-tag" data-field="game" data-i18n="cloud.tag.6">Engagement</span>
+        <button class="kw-pill kw-field" data-field="entertainment" type="button" data-i18n="research.entertainment">Entertainment Computing</button>
+        <span class="kw-pill kw-tag" data-field="ai" data-i18n="cloud.tag.7">Adaptive Quiz</span>
+        <span class="kw-pill kw-tag" data-field="edtech" data-i18n="cloud.tag.8">Human-AI Interaction</span>
+        <span class="kw-pill kw-tag" data-field="game" data-i18n="cloud.tag.9">Kahoot</span>
+        <span class="kw-pill kw-tag" data-field="entertainment" data-i18n="cloud.tag.10">Mathematical Models</span>
+        <button class="kw-pill kw-field kw-field--current" data-field="edtech" type="button" data-i18n="research.edtech">AI-powered Educational Technology</button>
+        <span class="kw-pill kw-tag" data-field="ai" data-i18n="cloud.tag.11">Knowledge Recommender</span>
+        <span class="kw-pill kw-tag" data-field="edtech" data-i18n="cloud.tag.12">Learning Science</span>
+        <span class="kw-pill kw-tag" data-field="entertainment" data-i18n="cloud.tag.13">Game Informatics</span>
+        <span class="kw-pill kw-tag" data-field="ai" data-i18n="cloud.tag.14">LLM</span>
+        <span class="kw-pill kw-tag" data-field="edtech" data-i18n="cloud.tag.15">Adult Education</span>
+        <span class="kw-pill kw-tag" data-field="game" data-i18n="cloud.tag.16">Game-Based Learning</span>
+        <span class="kw-pill kw-tag" data-field="edtech" data-i18n="cloud.tag.17">Continuing Education</span>
+        <span class="kw-pill kw-tag" data-field="entertainment" data-i18n="cloud.tag.18">Entertainment Value</span>
+        <span class="kw-pill kw-tag" data-field="edtech" data-i18n="cloud.tag.19">Lifestyle Integration</span>
+
+      </div><button class="cloud-reset" type="button" data-i18n="cloud.reset" hidden>Show all connections</button></div>
 
       <!-- Description panel — right column on desktop -->
       <div class="kw-desc-panel" id="kw-desc-panel" aria-live="polite">
@@ -357,16 +386,16 @@
         <p class="kw-desc-empty" data-i18n="research.empty">Pick a field to see what's brewing.</p>
         <div class="kw-desc" data-field="ai"><h3 data-i18n="research.ai-learning">AI-Driven Adaptive Learning</h3><p><span data-i18n="chapter.research.ai">Learning that adapts to each learner, with quizzes and personalised feedback.</span></p><details class="story-fold research-fold"><summary><span data-i18n="chapter.research.notes">Research notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content">
           <p data-i18n="chapter.research.detail.0">Developing adaptive quiz systems and personalised learning experiences that respond to individual learners in real time — combining machine learning with insights from educational psychology to improve outcomes at scale.</p>
-        <div class="research-notes"><span class="kw-pill kw-tag" data-field="ai">Machine Learning</span><span class="kw-pill kw-tag" data-field="ai">Personalization</span><span class="kw-pill kw-tag" data-field="ai">Adaptive Quiz</span><span class="kw-pill kw-tag" data-field="ai">Knowledge Recommender</span><span class="kw-pill kw-tag" data-field="ai">LLM</span></div></div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        </div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
         <div class="kw-desc" data-field="game"><h3 data-i18n="research.gamification">Gamification in Education</h3><p><span data-i18n="chapter.research.game">Using challenge and play to make classroom quizzes more engaging.</span></p><details class="story-fold research-fold"><summary><span data-i18n="chapter.research.notes">Research notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content">
           <p data-i18n="chapter.research.detail.1">Examining how challenge-based gamification mechanics can transform classroom quizzing into engaging, rewarding experiences. Published research demonstrates significant gains in student engagement and knowledge retention.</p>
-        <div class="research-notes"><span class="kw-pill kw-tag" data-field="game">Challenge-Based</span><span class="kw-pill kw-tag" data-field="game">Engagement</span><span class="kw-pill kw-tag" data-field="game">Kahoot</span><span class="kw-pill kw-tag" data-field="game">Game-Based Learning</span></div></div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        </div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
         <div class="kw-desc" data-field="entertainment"><h3 data-i18n="research.entertainment">Entertainment Computing</h3><p><span data-i18n="chapter.research.entertainment">Exploring what makes games enjoyable through game refinement theory.</span></p><details class="story-fold research-fold"><summary><span data-i18n="chapter.research.notes">Research notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content">
           <p data-i18n="chapter.research.detail.2">Applying game refinement theory and signal-processing models to measure and optimise the entertainment value of games — linking player experience to mathematical properties of game structure and design.</p>
-        <div class="research-notes"><span class="kw-pill kw-tag" data-field="entertainment">Game Refinement</span><span class="kw-pill kw-tag" data-field="entertainment">Player Experience</span><span class="kw-pill kw-tag" data-field="entertainment">Mathematical Models</span><span class="kw-pill kw-tag" data-field="entertainment">Game Informatics</span><span class="kw-pill kw-tag" data-field="entertainment">Entertainment Value</span></div></div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        </div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
         <div class="kw-desc" data-field="edtech"><h3 data-i18n="research.edtech">AI-powered Educational Technology</h3><p><span data-i18n="chapter.research.edtech">Bringing AI-powered micro-learning into everyday life and work.</span></p><details class="story-fold research-fold"><summary><span data-i18n="chapter.research.notes">Research notes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="fold-content">
           <p data-i18n="chapter.research.detail.3">Conducting and leading a strategic research-and-translation project — developing an AI-powered lifestyle-integrated micro-learning app for continuing education that meets adult learners in the flow of life and work.</p>
-        <div class="research-notes"><span class="kw-pill kw-tag" data-field="edtech">Micro-learning</span><span class="kw-pill kw-tag" data-field="edtech">Human-AI Interaction</span><span class="kw-pill kw-tag" data-field="edtech">Learning Science</span><span class="kw-pill kw-tag" data-field="edtech">Adult Education</span><span class="kw-pill kw-tag" data-field="edtech">Continuing Education</span><span class="kw-pill kw-tag" data-field="edtech">Lifestyle Integration</span></div></div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+        </div></details><a class="story-link" href="#publications" data-story-link><span data-i18n="chapter.research.papers">See the published work</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
       </div><!-- /kw-desc-panel -->
       </div><!-- /research-body -->
     </section>

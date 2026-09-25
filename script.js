@@ -3,6 +3,10 @@ const preferences = {
   get(key) { try { return localStorage.getItem(key); } catch { return null; } },
   set(key, value) { try { localStorage.setItem(key, value); } catch { /* Session-only preference. */ } }
 };
+const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+function allowsMotion() {
+  return !motionQuery.matches && document.documentElement.dataset.motion !== 'paused';
+}
 
 // ─── Footer year ────────────────────────────────────────────────
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -111,16 +115,24 @@ document.getElementById('year').textContent = new Date().getFullYear();
 (function initCoverFlip() {
   const flipper = document.querySelector('.thesis-cover-flipper');
   if (!flipper) return;
+  const control = document.querySelector('.thesis-flip-control');
+  const label = document.querySelector('.thesis-face-label');
+  const imageLink = document.querySelector('.thesis-image-link');
+  flipper.disabled = false;
+  control.disabled = false;
 
   function toggle() {
     const flipped = flipper.classList.toggle('flipped');
     flipper.setAttribute('aria-pressed', flipped);
+    control.setAttribute('aria-pressed', flipped);
+    const key = flipped ? 'shelf.back' : 'shelf.front';
+    label.dataset.i18n = key;
+    setText(label, TRANSLATIONS[document.documentElement.lang][key]);
+    imageLink.href = flipped ? 'ver1b.png' : 'ver1.png';
   }
 
   flipper.addEventListener('click', toggle);
-  flipper.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-  });
+  control.addEventListener('click', toggle);
 })();
 
 // ─── Theme toggle ────────────────────────────────────────────────
@@ -166,6 +178,40 @@ function setText(el, str) {
 
 const TRANSLATIONS = {
   en: {
+    "motion.pause": "Pause animations",
+    "motion.play": "Play animations",
+    "motion.reduced": "Motion reduced by your system setting",
+    "shelf.kicker": "From my bookshelf",
+    "shelf.title": "Motion in Mind",
+    "shelf.brief": "How challenge and question design shape learning. My doctoral research at JAIST.",
+    "shelf.flip": "Flip the cover",
+    "shelf.front": "Front cover",
+    "shelf.back": "Research map",
+    "shelf.read": "Read thesis ↗",
+    "shelf.enlarge": "View cover full size ↗",
+    "cloud.label": "Research areas — choose a field to explore",
+    "cloud.hint": "Choose a field. Follow the connected ideas.",
+    "cloud.reset": "Show all connections",
+    "cloud.tag.0": "Challenge-Based",
+    "cloud.tag.1": "Game Refinement",
+    "cloud.tag.2": "Machine Learning",
+    "cloud.tag.3": "Player Experience",
+    "cloud.tag.4": "Personalization",
+    "cloud.tag.5": "Micro-learning",
+    "cloud.tag.6": "Engagement",
+    "cloud.tag.7": "Adaptive Quiz",
+    "cloud.tag.8": "Human-AI Interaction",
+    "cloud.tag.9": "Kahoot",
+    "cloud.tag.10": "Mathematical Models",
+    "cloud.tag.11": "Knowledge Recommender",
+    "cloud.tag.12": "Learning Science",
+    "cloud.tag.13": "Game Informatics",
+    "cloud.tag.14": "LLM",
+    "cloud.tag.15": "Adult Education",
+    "cloud.tag.16": "Game-Based Learning",
+    "cloud.tag.17": "Continuing Education",
+    "cloud.tag.18": "Entertainment Value",
+    "cloud.tag.19": "Lifestyle Integration",
     "feed.button": "Feed me cold brew",
     "feed.cup": "cup served",
     "feed.cups": "cups served",
@@ -300,6 +346,40 @@ const TRANSLATIONS = {
     'link.ahlab':       'AHLab Profile',
   },
   th: {
+    "motion.pause": "หยุดแอนิเมชัน",
+    "motion.play": "เล่นแอนิเมชัน",
+    "motion.reduced": "ลดการเคลื่อนไหวตามการตั้งค่าระบบ",
+    "shelf.kicker": "จากชั้นหนังสือของผม",
+    "shelf.title": "Motion in Mind",
+    "shelf.brief": "ความท้าทายและการออกแบบคำถาม ช่วยให้เราเรียนรู้อย่างไร — งานปริญญาเอก JAIST",
+    "shelf.flip": "พลิกปกหนังสือ",
+    "shelf.front": "ปกหน้า",
+    "shelf.back": "แผนภาพงานวิจัย",
+    "shelf.read": "อ่านวิทยานิพนธ์ ↗",
+    "shelf.enlarge": "ดูภาพปกขนาดเต็ม ↗",
+    "cloud.label": "หัวข้องานวิจัย เลือกเพื่อสำรวจแนวคิดที่เชื่อมโยงกัน",
+    "cloud.hint": "เลือกหัวข้อ แล้วตามไปดูแนวคิดที่เชื่อมโยงกัน",
+    "cloud.reset": "ดูทุกความเชื่อมโยง",
+    "cloud.tag.0": "ความท้าทายเป็นฐาน",
+    "cloud.tag.1": "Game Refinement",
+    "cloud.tag.2": "การเรียนรู้ของเครื่อง",
+    "cloud.tag.3": "ประสบการณ์ผู้เล่น",
+    "cloud.tag.4": "ปรับให้เหมาะกับบุคคล",
+    "cloud.tag.5": "การเรียนรู้ทีละน้อย",
+    "cloud.tag.6": "การมีส่วนร่วม",
+    "cloud.tag.7": "แบบทดสอบปรับตัวได้",
+    "cloud.tag.8": "ปฏิสัมพันธ์มนุษย์–AI",
+    "cloud.tag.9": "Kahoot",
+    "cloud.tag.10": "แบบจำลองคณิตศาสตร์",
+    "cloud.tag.11": "ระบบแนะนำความรู้",
+    "cloud.tag.12": "ศาสตร์การเรียนรู้",
+    "cloud.tag.13": "สารสนเทศศาสตร์เกม",
+    "cloud.tag.14": "LLM",
+    "cloud.tag.15": "การศึกษาผู้ใหญ่",
+    "cloud.tag.16": "การเรียนรู้ผ่านเกม",
+    "cloud.tag.17": "การศึกษาต่อเนื่อง",
+    "cloud.tag.18": "คุณค่าความบันเทิง",
+    "cloud.tag.19": "ผสานกับชีวิตประจำวัน",
     "feed.button": "เติมโคลด์บรูว์ให้เบลล์",
     "feed.cup": "แก้วที่เสิร์ฟแล้ว",
     "feed.cups": "แก้วที่เสิร์ฟแล้ว",
@@ -463,6 +543,32 @@ const TRANSLATIONS = {
   applyLang(lang);
 })();
 
+// Ambient motion is optional and pauses when the page is not visible.
+(function initMotionControl() {
+  const button = document.querySelector('.motion-toggle');
+  let paused = preferences.get('coffee-motion') === 'paused';
+  function apply() {
+    const off = paused || motionQuery.matches;
+    document.documentElement.dataset.motion = off ? 'paused' : 'running';
+    const key = motionQuery.matches ? 'motion.reduced' : off ? 'motion.play' : 'motion.pause';
+    button.dataset.i18nAria = key;
+    button.setAttribute('aria-label', TRANSLATIONS[document.documentElement.lang][key]);
+    button.disabled = motionQuery.matches;
+    document.dispatchEvent(new Event('motionchange'));
+  }
+  button.hidden = false;
+  button.addEventListener('click', () => {
+    paused = !paused;
+    preferences.set('coffee-motion', paused ? 'paused' : 'running');
+    apply();
+  });
+  motionQuery.addEventListener('change', apply);
+  document.addEventListener('visibilitychange', () => {
+    document.documentElement.dataset.pageHidden = String(document.hidden);
+  });
+  apply();
+})();
+
 // ─── Education timeline — click to reveal degree detail ─────────────
 (function initEduTimeline() {
   const timeline = document.querySelector('.edu-timeline');
@@ -549,17 +655,39 @@ const TRANSLATIONS = {
   const panel = document.getElementById('kw-desc-panel');
   if (!cloud || !panel) return;
   const buttons = [...cloud.querySelectorAll('.kw-field')];
+  const reset = document.querySelector('.cloud-reset');
+  let selected = null;
+  let reactions = [];
   function choose(field) {
-    cloud.classList.add('has-focus');
+    selected = field;
+    cloud.classList.toggle('has-focus', Boolean(field));
+    cloud.querySelectorAll('.kw-pill').forEach(pill => pill.classList.toggle('kw-lit', pill.dataset.field === field));
     buttons.forEach(button => {
       const active = button.dataset.field === field;
-      button.classList.toggle('kw-lit', active);
       button.setAttribute('aria-pressed', String(active));
+      button.setAttribute('aria-controls', 'kw-desc-panel');
     });
+    reset.hidden = !field;
+    panel.querySelector('.kw-desc-empty').hidden = Boolean(field);
     panel.querySelectorAll('.kw-desc').forEach(description => description.classList.toggle('kw-desc--active', description.dataset.field === field));
+    reactions.forEach(animation => animation.cancel());
+    reactions = [];
+    if (field && allowsMotion() && Element.prototype.animate) {
+      reactions = [...cloud.querySelectorAll('.kw-tag.kw-lit')].map((tag, index) => tag.animate([
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(-6px)', offset: .4 },
+        { transform: 'translateY(0)' }
+      ], {duration: 440, delay: index * 35, easing: 'ease-out'}));
+    }
   }
-  buttons.forEach(button => button.addEventListener('click', () => choose(button.dataset.field)));
-  choose('ai');
+  buttons.forEach(button => button.addEventListener('click', () => choose(selected === button.dataset.field ? null : button.dataset.field)));
+  reset.addEventListener('click', () => {
+    const previous = buttons.find(button => button.dataset.field === selected);
+    choose(null);
+    previous?.focus();
+  });
+  document.addEventListener('motionchange', () => reactions.forEach(animation => animation.cancel()));
+  choose(null);
 })();
 
 // Each chapter keeps its detail local and lets Bell react to exploration.
@@ -627,9 +755,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = Array.from(reader.querySelectorAll('.section[id]'));
   const topicLinks = Array.from(navigation.querySelectorAll('[data-story-link]'));
   let returnTarget = null;
+  let activeTopic;
+  let entrance;
 
   function showTopic(id, focus = true) {
     const selected = sections.find(section => section.id === id);
+    const nextTopic = selected?.id || 'home';
+    if (nextTopic === activeTopic) return;
+    activeTopic = nextTopic;
+    entrance?.cancel();
     home.hidden = Boolean(selected);
     reader.hidden = !selected;
     sections.forEach(section => { section.hidden = section !== selected; });
@@ -646,7 +780,15 @@ document.addEventListener('DOMContentLoaded', () => {
       // A new topic starts at its heading; no long animated trip through the CV.
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
+    // Content and focus update immediately; motion never delays navigation.
+    if (focus && allowsMotion() && Element.prototype.animate) {
+      entrance = (selected || home).animate([
+        { opacity: 0, transform: 'translateY(12px)' },
+        { opacity: 1, transform: 'translateY(0)' }
+      ], { duration: 320, easing: 'cubic-bezier(.16,1,.3,1)' });
+    }
   }
+  document.addEventListener('motionchange', () => entrance?.cancel());
 
   document.addEventListener('click', event => {
     const link = event.target.closest('a[data-story-link]');
@@ -676,7 +818,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const storageKey = 'bell-cold-brews';
   const saved = Number(preferences.get(storageKey));
   let count = Number.isSafeInteger(saved) && saved >= 0 ? saved : 0;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let reactions = [];
 
   function translate(element, key) {
@@ -712,7 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
     translate(note, `feed.note.${moment}`);
     stopReaction();
     // A single, interruptible delivery per click; rapid taps still count every cup.
-    if (reducedMotion.matches || !Element.prototype.animate) return;
+    if (!allowsMotion() || !Element.prototype.animate) return;
     const portrait = character.querySelector('.bell-portrait');
     reactions = [
       portrait.animate([
@@ -732,9 +873,26 @@ document.addEventListener('DOMContentLoaded', () => {
         { opacity: 1, offset: .2 },
         { opacity: 1, offset: .65 },
         { opacity: 0, transform: 'translateY(-24px) scale(1)' }
-      ], { duration: 850, easing: 'ease-out' })
+      ], { duration: 850, easing: 'ease-out' }),
+      note.closest('.bell-note').animate([
+        { opacity: .35, transform: 'translateY(6px) scale(.97)' },
+        { opacity: 1, transform: 'translateY(0) scale(1)' }
+      ], {duration: 380, easing: 'cubic-bezier(.16,1,.3,1)'}),
+      total.animate([{transform:'scale(1.35)'},{transform:'scale(1)'}], {duration:380,easing:'ease-out'})
     ];
+    if ([5, 10, 25].includes(count)) {
+      character.querySelectorAll('.brew-bean').forEach((bean, index) => {
+        const angle = (index / 8) * Math.PI * 2;
+        const x = Math.cos(angle) * 85;
+        const y = Math.sin(angle) * 75;
+        reactions.push(bean.animate([
+          {opacity:0,transform:'translate(0, 0) scale(.4)'},
+          {opacity:1,offset:.2},
+          {opacity:0,transform:`translate(${x}px, ${y}px) rotate(${index * 55}deg) scale(1)`}
+        ], {duration:850,delay:index*12,easing:'ease-out'}));
+      });
+    }
   });
   document.querySelector('.lang-toggle').addEventListener('click', renderCount);
-  reducedMotion.addEventListener('change', stopReaction);
+  document.addEventListener('motionchange', stopReaction);
 })();
