@@ -2026,8 +2026,8 @@ body:has(.poster-home):not(.reading-story) { background: var(--bg-tinted); }
   .poster-home .bell-invitation svg { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .story-poster, .story-poster > svg, .poster-chibi img { transition: none; }
-  .story-poster:hover, .story-poster:hover .poster-chibi img { transform: none; }
+  :root:not([data-motion="running"]) :is(.story-poster, .story-poster > svg, .poster-chibi img) { transition: none; }
+  :root:not([data-motion="running"]) :is(.story-poster:hover, .story-poster:hover .poster-chibi img) { transform: none; }
 }
 /* Inner chapters share the coffee table's quiet, illustrated character. */
 .reader-navigation { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-s); padding-block: var(--sp-xs); }
@@ -2181,7 +2181,8 @@ body:has(.poster-home):not(.reading-story) { background: var(--bg-tinted); }
   .story-fold, .chapter-head { break-inside: avoid; }
 }
 /* Playful café: shared page motion, a readable reply, and a small bookshelf. */
-.motion-toggle { display: grid; place-items: center; flex: 0 0 auto; width: 36px; height: 44px; border: 0; background: none; color: var(--text-2); border-radius: var(--r-pill); cursor: pointer; }
+.motion-toggle { display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2xs); flex: 0 0 auto; min-width: 36px; height: 44px; padding-inline: var(--sp-xs); border: 0; background: none; color: var(--text-2); border-radius: var(--r-pill); cursor: pointer; }
+.motion-state { font: var(--weight-medium) var(--type-caption) var(--sans); white-space: nowrap; }
 .motion-toggle:active { transform: scale(.95); }
 .motion-play, [data-motion="paused"] .motion-pause { display: none; }
 [data-motion="paused"] .motion-play { display: block; }
@@ -2255,6 +2256,8 @@ body:not(.story-enhanced) #research .kw-desc { display: block; }
   .poster-home .bell-portrait { width: 220px; height: 215px; }
 }
 @media (max-width: 600px) {
+  .motion-state { display: none; }
+  .motion-toggle { padding-inline: 0; }
   .cafe-header .nav-controls { gap: 0; margin-left: 0; }
   .cafe-tools { gap: var(--sp-2xs); }
   .cafe-contact { white-space: nowrap; }
@@ -2289,23 +2292,18 @@ body:not(.story-enhanced) #research .kw-desc { display: block; }
 }
 @media print { .landing-thesis, .motion-toggle { display: none; } }
 @media (prefers-reduced-motion: reduce) {
-  .coffee-drift, .thesis-cover-flipper { animation: none !important; transition: none !important; }
-  .chapter-pose, .chapter-portrait, .story-fold > summary > svg, .story-fold > .fold-content, .edu-list.edu-js .edu-item, .kw-desc.kw-desc--active { animation: none !important; transition: none !important; }
-  .chapter-bell:hover .chapter-portrait { transform: none; }
-  html { scroll-behavior: auto; }
-  .bell-portrait, .bell-pose, .cafe-primary, .coffee-menu-item, .coffee-menu-item > svg, .reader-topics a { animation: none !important; transition: none !important; }
-  .bell-character:hover .bell-portrait { transform: none; }
-  .section, .exp-connector { animation: none; opacity: 1; transform: none; }
-  .name-swash { animation: none; stroke-dashoffset: 0; }
-  .persona-card:hover, .thesis-book-shadow:hover { transform: none; }
-  .tab,
-  .link-row,
-  .link-row::before,
-  .arrow,
-  .persona-card { transition: none; }
-  .accent-bar { animation: none; transform: none; }
-  .eyebrow, .name, .name-sub, .tagline,
-  .hero-figure  { animation: none; opacity: 1; transform: none; }
-  .exp-dot--now { animation: none; }
-  .kw-pill--entering, .pub-item--entering { animation: none; opacity: 1; transform: none; }
+  :root:not([data-motion="running"]) :is(.coffee-drift, .thesis-cover-flipper) { animation: none !important; transition: none !important; }
+  :root:not([data-motion="running"]) :is(.chapter-pose, .chapter-portrait, .story-fold > summary > svg, .story-fold > .fold-content, .edu-list.edu-js .edu-item, .kw-desc.kw-desc--active) { animation: none !important; transition: none !important; }
+  :root:not([data-motion="running"]) .chapter-bell:hover .chapter-portrait { transform: none; }
+  html:not([data-motion="running"]) { scroll-behavior: auto; }
+  :root:not([data-motion="running"]) :is(.bell-portrait, .bell-pose, .cafe-primary, .coffee-menu-item, .coffee-menu-item > svg, .reader-topics a) { animation: none !important; transition: none !important; }
+  :root:not([data-motion="running"]) .bell-character:hover .bell-portrait { transform: none; }
+  :root:not([data-motion="running"]) :is(.section, .exp-connector) { animation: none; opacity: 1; transform: none; }
+  :root:not([data-motion="running"]) .name-swash { animation: none; stroke-dashoffset: 0; }
+  :root:not([data-motion="running"]) :is(.persona-card:hover, .thesis-book-shadow:hover) { transform: none; }
+  :root:not([data-motion="running"]) :is(.tab, .link-row, .link-row::before, .arrow, .persona-card) { transition: none; }
+  :root:not([data-motion="running"]) .accent-bar { animation: none; transform: none; }
+  :root:not([data-motion="running"]) :is(.eyebrow, .name, .name-sub, .tagline, .hero-figure) { animation: none; opacity: 1; transform: none; }
+  :root:not([data-motion="running"]) .exp-dot--now { animation: none; }
+  :root:not([data-motion="running"]) :is(.kw-pill--entering, .pub-item--entering) { animation: none; opacity: 1; transform: none; }
 }

@@ -5,7 +5,8 @@ const preferences = {
 };
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 function allowsMotion() {
-  return !motionQuery.matches && document.documentElement.dataset.motion !== 'paused';
+  const state = document.documentElement.dataset.motion;
+  return state ? state === 'running' : !motionQuery.matches;
 }
 
 // ─── Footer year ────────────────────────────────────────────────
@@ -180,7 +181,9 @@ const TRANSLATIONS = {
   en: {
     "motion.pause": "Pause animations",
     "motion.play": "Play animations",
-    "motion.reduced": "Motion reduced by your system setting",
+    "motion.reduced": "Play animations — currently reduced by your device setting",
+    "motion.on": "Motion on",
+    "motion.off": "Motion off",
     "shelf.kicker": "From my bookshelf",
     "shelf.title": "Motion in Mind",
     "shelf.brief": "How challenge and question design shape learning. My doctoral research at JAIST.",
@@ -348,7 +351,9 @@ const TRANSLATIONS = {
   th: {
     "motion.pause": "หยุดแอนิเมชัน",
     "motion.play": "เล่นแอนิเมชัน",
-    "motion.reduced": "ลดการเคลื่อนไหวตามการตั้งค่าระบบ",
+    "motion.reduced": "เปิดแอนิเมชัน — ขณะนี้ลดการเคลื่อนไหวตามการตั้งค่าอุปกรณ์",
+    "motion.on": "เปิด motion",
+    "motion.off": "ปิด motion",
     "shelf.kicker": "จากชั้นหนังสือของผม",
     "shelf.title": "Motion in Mind",
     "shelf.brief": "ความท้าทายและการออกแบบคำถาม ช่วยให้เราเรียนรู้อย่างไร — งานปริญญาเอก JAIST",
@@ -546,23 +551,34 @@ const TRANSLATIONS = {
 // Ambient motion is optional and pauses when the page is not visible.
 (function initMotionControl() {
   const button = document.querySelector('.motion-toggle');
-  let paused = preferences.get('coffee-motion') === 'paused';
-  function apply() {
-    const off = paused || motionQuery.matches;
-    document.documentElement.dataset.motion = off ? 'paused' : 'running';
-    const key = motionQuery.matches ? 'motion.reduced' : off ? 'motion.play' : 'motion.pause';
+  const label = button.querySelector('.motion-state');
+  const saved = preferences.get('coffee-motion');
+  let choice = ['running', 'paused'].includes(saved) ? saved : null;
+  function render() {
+    const off = !allowsMotion();
+    const key = off ? (!choice && motionQuery.matches ? 'motion.reduced' : 'motion.play') : 'motion.pause';
+    const text = TRANSLATIONS[document.documentElement.lang][key];
     button.dataset.i18nAria = key;
-    button.setAttribute('aria-label', TRANSLATIONS[document.documentElement.lang][key]);
-    button.disabled = motionQuery.matches;
+    button.setAttribute('aria-label', text);
+    button.title = text;
+    label.dataset.i18n = off ? 'motion.off' : 'motion.on';
+    setText(label, TRANSLATIONS[document.documentElement.lang][label.dataset.i18n]);
+  }
+  function apply() {
+    // Follow the device by default; a deliberate local choice takes precedence.
+    const off = choice === 'paused' || (choice !== 'running' && motionQuery.matches);
+    document.documentElement.dataset.motion = off ? 'paused' : 'running';
+    render();
     document.dispatchEvent(new Event('motionchange'));
   }
   button.hidden = false;
   button.addEventListener('click', () => {
-    paused = !paused;
-    preferences.set('coffee-motion', paused ? 'paused' : 'running');
+    choice = allowsMotion() ? 'paused' : 'running';
+    preferences.set('coffee-motion', choice);
     apply();
   });
   motionQuery.addEventListener('change', apply);
+  document.querySelector('.lang-toggle').addEventListener('click', render);
   document.addEventListener('visibilitychange', () => {
     document.documentElement.dataset.pageHidden = String(document.hidden);
   });

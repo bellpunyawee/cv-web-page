@@ -249,7 +249,10 @@ The reply now has a mint background beside the interaction, and each feed animat
 the reply and count. At 5, 10, and 25 cups, eight small SVG coffee beans scatter once.
 Two decorative beans drift gently near Bell. Use the pause control in the header to
 stop motion; that choice persists as `coffee-motion`. Ambient motion pauses in other
-chapters and background tabs, and system reduced-motion takes priority.
+chapters and background tabs. The device's reduced-motion setting is the default;
+visitors can explicitly enable animations with the header control, even when their
+device reduces motion. The desktop control shows “Motion on/off” and remembers the
+visitor's choice. CSS and JavaScript use the same effective setting.
 
 Chapter navigation uses an interruptible 320ms fade and slide. The content, URL,
 and keyboard focus update immediately; rapid navigation and browser history retain
