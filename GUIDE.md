@@ -226,7 +226,7 @@ second note; choosing a degree, research topic, or opening a detail also prompts
 brief reaction. The homepage and the About chapter both keep the real portrait.
 
 - About separates lab life and after-hours stories into native disclosures.
-- Education keeps degree selection and the full thesis abstract under the PhD. The original front/back cover artwork now appears on the landing page with a short introduction, a flip control, a full-size image link, and the PDF link. The mathematical cover SVG is preserved as its fallback.
+- Education keeps degree selection and the full thesis abstract under the PhD. The original front/back cover artwork now appears on the landing page with a short introduction, a text hint to click the book, a full-size image link, and the PDF link. Click the cover (or use Enter/Space) to flip it. The mathematical cover SVG is preserved as its fallback.
 - Experience opens one role at a time. Publication titles remain visible, with metadata underneath each title.
 - Research restores the original cloud of four fields and twenty related keywords. Selecting a field highlights matching keywords and opens its description. Select it again or use “Show all connections” to reset; research notes still open on demand.
 - Personality expands each profile independently. Connect prioritises email, LinkedIn, and CV, with other profiles underneath.

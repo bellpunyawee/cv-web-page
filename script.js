@@ -116,16 +116,15 @@ document.getElementById('year').textContent = new Date().getFullYear();
 (function initCoverFlip() {
   const flipper = document.querySelector('.thesis-cover-flipper');
   if (!flipper) return;
-  const control = document.querySelector('.thesis-flip-control');
+  const hint = document.querySelector('.thesis-flip-hint');
   const label = document.querySelector('.thesis-face-label');
   const imageLink = document.querySelector('.thesis-image-link');
   flipper.disabled = false;
-  control.disabled = false;
+  hint.hidden = false;
 
   function toggle() {
     const flipped = flipper.classList.toggle('flipped');
     flipper.setAttribute('aria-pressed', flipped);
-    control.setAttribute('aria-pressed', flipped);
     const key = flipped ? 'shelf.back' : 'shelf.front';
     label.dataset.i18n = key;
     setText(label, TRANSLATIONS[document.documentElement.lang][key]);
@@ -133,7 +132,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
 
   flipper.addEventListener('click', toggle);
-  control.addEventListener('click', toggle);
 })();
 
 // ─── Theme toggle ────────────────────────────────────────────────
@@ -188,6 +186,7 @@ const TRANSLATIONS = {
     "shelf.title": "Motion in Mind",
     "shelf.brief": "How challenge and question design shape learning. My doctoral research at JAIST.",
     "shelf.flip": "Flip the cover",
+    "shelf.hint": "Try clicking the book",
     "shelf.front": "Front cover",
     "shelf.back": "Research map",
     "shelf.read": "Read thesis ↗",
@@ -359,6 +358,7 @@ const TRANSLATIONS = {
     "shelf.title": "Motion in Mind",
     "shelf.brief": "ความท้าทายและการออกแบบคำถาม ช่วยให้เราเรียนรู้อย่างไร — งานปริญญาเอก JAIST",
     "shelf.flip": "พลิกปกหนังสือ",
+    "shelf.hint": "ลองคลิกที่หนังสือดู",
     "shelf.front": "ปกหน้า",
     "shelf.back": "แผนภาพงานวิจัย",
     "shelf.read": "อ่านวิทยานิพนธ์ ↗",

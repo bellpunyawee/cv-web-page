@@ -2246,10 +2246,7 @@ body:has(.poster-home):not(.reading-story) { background: var(--bg-tinted); }
 .thesis-info h2 { font-size: var(--type-title); line-height: var(--leading-heading); font-weight: var(--weight-medium); color: var(--primary); }
 .shelf-brief { font-size: var(--type-small); line-height: var(--leading-body); color: var(--text-2); max-width: 32ch; text-wrap: pretty; }
 .shelf-controls, .shelf-links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2xs) var(--sp-xs); }
-.thesis-flip-control { display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-xs); min-height: 44px; padding: var(--sp-2xs) var(--sp-xs); font: inherit; font-size: var(--type-small); color: var(--primary); background: var(--primary-dim); border: 0; border-radius: var(--r-pill); cursor: pointer; }
-.thesis-flip-control svg { flex: 0 0 auto; }
-.thesis-flip-control:active { transform: scale(.95); }
-.thesis-flip-control:disabled { display: none; }
+.thesis-flip-hint { font-size: var(--type-small); color: var(--primary); line-height: var(--leading-body); }
 .thesis-face-label { font-size: var(--type-caption); color: var(--text-2); }
 .shelf-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--type-small); color: var(--primary); text-underline-offset: .2em; }
 .shelf-links a:hover { text-decoration: underline; }

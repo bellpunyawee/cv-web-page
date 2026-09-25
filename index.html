@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Punyawee Anunpattana — Research Fellow at CHILL · Augmented Human Lab, NUS. Learning Science, Human-AI Interaction, and Educational Technology.">
   <title>Punyawee Anunpattana</title>
-  <link rel="stylesheet" href="style.css?v=brew-hover-1">
+  <link rel="stylesheet" href="style.css?v=book-hint-1">
 </head>
 <body>
 
@@ -68,7 +68,7 @@
 
           <!-- Book cover — 3D flip: front = ver1.png, back = ver1b.png -->
           <div class="thesis-cover">
-            <button class="thesis-cover-flipper" id="landing-cover" type="button" aria-label="Flip the thesis cover" data-i18n-aria="shelf.flip" aria-pressed="false" disabled>
+            <button class="thesis-cover-flipper" id="landing-cover" type="button" aria-label="Flip the thesis cover" data-i18n-aria="shelf.flip" aria-describedby="book-flip-hint" aria-pressed="false" disabled>
               <img class="thesis-cover-front" src="ver1.png" alt="" width="1408" height="2000" loading="lazy"
                    onerror="this.closest('.thesis-cover-flipper').classList.add('no-image')">
               <img class="thesis-cover-back" src="ver1b.png" alt="" width="1408" height="2000" loading="lazy">
@@ -138,7 +138,7 @@
             <p class="shelf-kicker" data-i18n="shelf.kicker">From my bookshelf</p>
             <h2 id="thesis-heading" data-i18n="shelf.title">Motion in Mind</h2>
             <p class="shelf-brief" data-i18n="shelf.brief">How challenge and question design shape learning. My doctoral research at JAIST.</p>
-            <div class="shelf-controls"><button class="thesis-flip-control" type="button" aria-controls="landing-cover" aria-pressed="false" disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6 7a7 7 0 0 1 12-2l2 2M4 17l2 2a7 7 0 0 0 12-2"/></svg><span data-i18n="shelf.flip">Flip the cover</span></button><span class="thesis-face-label" data-i18n="shelf.front" aria-live="polite">Front cover</span></div>
+            <div class="shelf-controls"><span class="thesis-flip-hint" id="book-flip-hint" data-i18n="shelf.hint" hidden>Try clicking the book</span><span class="thesis-face-label" data-i18n="shelf.front" aria-live="polite">Front cover</span></div>
             <div class="shelf-links"><a class="thesis-link" href="https://dspace.jaist.ac.jp/dspace/bitstream/10119/18418/2/paper.pdf" target="_blank" rel="noopener noreferrer" data-i18n="shelf.read">Read thesis ↗</a><a class="thesis-image-link" href="ver1.png" target="_blank" rel="noopener noreferrer" data-i18n="shelf.enlarge">View cover full size ↗</a></div>
           </div>
 
@@ -529,6 +529,6 @@
     </p>
   </footer>
 
-  <script src="script.js?v=identity-1"></script>
+  <script src="script.js?v=book-hint-1"></script>
 </body>
 </html>
