@@ -273,3 +273,26 @@ display headings and prose, 500 for titles and controls, 600 for emphasis.
 Body copy stays at 1rem on mobile and desktop; secondary text uses .875rem and
 captions .75rem. Thai overrides the heading tracking and line heights to preserve
 natural spacing and room for vowel marks. Existing layout spacing tokens stay intact.
+
+### Editorial inner chapters
+
+Publications, Education, Experience, About and Personality share the landing
+page's cream and mint surfaces, quiet display type, chapter numbers and Bell companion.
+English retains its system font; Thai retains the local Noto Sans Thai face.
+
+- Publications uses a lead paper and smaller paper cards. Year filters reveal
+  either 2020–2023 or 2016–2019; selecting All restores the complete selection.
+  Titles stay visible, while native disclosures reveal the existing metadata.
+- Education presents three coffee illustrations beside the degree selector.
+  The selected cup fills as its degree appears; Enter and Space also select it.
+- Experience highlights the current role and uses large year markers. Opening
+  another role closes the previous one; full date ranges retain overlapping roles.
+- About keeps the real portrait prominent, with separate lab and after-hours stories.
+- Personality uses two type-led posters with small coffee illustrations that react
+  when their descriptions open.
+
+Chapter entry, filtering and degree selection use short, cancellable Web Animations.
+They follow the existing effective motion preference, cancel on navigation or pause,
+and never delay content changes. No animation library or extra image asset is required.
+Without JavaScript all content remains available through native disclosures; filters
+stay hidden. Printing includes filtered papers and all degree details.

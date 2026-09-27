@@ -177,6 +177,13 @@ function setText(el, str) {
 
 const TRANSLATIONS = {
   en: {
+    'papers.filter': 'Filter publications',
+    'papers.all': 'All papers',
+    'papers.count': '{count} papers to explore',
+    'about.portrait': 'The real Bell.',
+    'blend.hint': 'Two notes in the same blend. Tap to explore.',
+    'blend.achiever': 'The Achiever',
+    'blend.empathy': 'The Protagonist & The Advocate',
     "motion.pause": "Pause animations",
     "motion.play": "Play animations",
     "motion.reduced": "Play animations — currently reduced by your device setting",
@@ -349,6 +356,13 @@ const TRANSLATIONS = {
     'link.ahlab':       'AHLab Profile',
   },
   th: {
+    'papers.filter': 'กรองผลงานตามปี',
+    'papers.all': 'ผลงานทั้งหมด',
+    'papers.count': 'มี {count} เรื่องให้ลองอ่าน',
+    'about.portrait': 'เบลตัวจริง',
+    'blend.hint': 'สองรสชาติในเบลนด์เดียวกัน ลองแตะเพื่อรู้จักกันมากขึ้น',
+    'blend.achiever': 'ผู้มุ่งมั่นสู่ความสำเร็จ',
+    'blend.empathy': 'ผู้สร้างแรงบันดาลใจ และผู้เข้าใจผู้อื่น',
     "motion.pause": "หยุดแอนิเมชัน",
     "motion.play": "เล่นแอนิเมชัน",
     "motion.reduced": "เปิดแอนิเมชัน — ขณะนี้ลดการเคลื่อนไหวตามการตั้งค่าอุปกรณ์",
@@ -606,6 +620,7 @@ const TRANSLATIONS = {
       c.setAttribute('aria-pressed', String(c.dataset.for === key));
     });
     items.forEach(el => el.classList.toggle('edu-visible', el.dataset.degree === key));
+    list.dispatchEvent(new Event('degreechange', { bubbles: true }));
   }
 
   cols.forEach(col => {
@@ -805,6 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { opacity: 1, transform: 'translateY(0)' }
       ], { duration: 320, easing: 'cubic-bezier(.16,1,.3,1)' });
     }
+    document.dispatchEvent(new CustomEvent('chapterchange', { detail: { section: selected } }));
   }
   document.addEventListener('motionchange', () => entrance?.cancel());
 
@@ -914,3 +930,77 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.lang-toggle').addEventListener('click', renderCount);
   document.addEventListener('motionchange', stopReaction);
 })();
+
+// Editorial chapter interactions: immediate state changes, optional short motion.
+document.addEventListener('DOMContentLoaded', () => {
+  const animations = new Set();
+  function stop() {
+    animations.forEach(animation => animation.cancel());
+    animations.clear();
+  }
+  function animate(element, frames, options = {}) {
+    if (!element || !allowsMotion() || !Element.prototype.animate || document.hidden) return;
+    const animation = element.animate(frames, {
+      duration: 360, easing: 'cubic-bezier(.16,1,.3,1)', ...options
+    });
+    animations.add(animation);
+    animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
+  }
+  function enter(section) {
+    stop();
+    if (!section?.matches('.editorial-chapter')) return;
+    const elements = section.querySelectorAll('.paper-entry:not([hidden]), .edu-tl-col, .edu-list, .role-entry, .about-real, .about-chapter, .personality-entry');
+    elements.forEach((element, index) => animate(element, [
+      { opacity: .35, transform: 'translateY(14px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { delay: Math.min(index * 45, 180), duration: 400 }));
+  }
+  document.addEventListener('chapterchange', event => enter(event.detail.section));
+  document.addEventListener('motionchange', stop);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
+
+  const papers = [...document.querySelectorAll('.paper-entry')];
+  const filters = [...document.querySelectorAll('.paper-filter')];
+  const result = document.querySelector('.paper-result');
+  function describePapers() {
+    const lang = document.documentElement.lang;
+    result.textContent = TRANSLATIONS[lang]['papers.count'].replace('{count}', papers.filter(paper => !paper.hidden).length);
+  }
+  filters.forEach(button => button.addEventListener('click', () => {
+    if (button.getAttribute('aria-pressed') === 'true') return;
+    stop();
+    const positions = new Map(papers.filter(paper => !paper.hidden).map(paper => [paper, paper.getBoundingClientRect()]));
+    filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+    papers.forEach(paper => { paper.hidden = button.dataset.era !== 'all' && paper.dataset.era !== button.dataset.era; });
+    describePapers();
+    papers.filter(paper => !paper.hidden).forEach(paper => {
+      const before = positions.get(paper);
+      const after = paper.getBoundingClientRect();
+      animate(paper, [
+        { opacity: before ? 1 : .25, transform: before ? `translate(${before.left - after.left}px, ${before.top - after.top}px)` : 'translateY(10px)' },
+        { opacity: 1, transform: 'translate(0, 0)' }
+      ]);
+    });
+  }));
+  document.querySelector('.paper-tools').hidden = false;
+  document.querySelector('.lang-toggle').addEventListener('click', describePapers);
+  describePapers();
+
+  document.addEventListener('degreechange', event => {
+    stop();
+    animate(event.target.querySelector('.edu-item.edu-visible'), [
+      { opacity: .3, transform: 'translateX(14px)' },
+      { opacity: 1, transform: 'translateX(0)' }
+    ]);
+  });
+  document.querySelector('.story-reader').addEventListener('toggle', event => {
+    if (!event.target.matches('.editorial-chapter details[open]') || event.target.closest('.section').hidden) return;
+    const artwork = event.target.querySelector('.persona-art svg, .about-symbol svg, .career-year');
+    animate(artwork, [
+      { transform: 'translateY(0) rotate(0deg)' },
+      { transform: 'translateY(-4px) rotate(-3deg)', offset: .4 },
+      { transform: 'translateY(0) rotate(0deg)' }
+    ], { duration: 420 });
+  }, true);
+  enter(document.querySelector('.editorial-chapter:not([hidden])'));
+});
